@@ -1,4 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {render} from "react-dom";
+import Example from "./lib/components/example"
+import TPPFormPanel from "./lib/components/TPPFormPanel";
 
-ReactDOM.render(<div>Hello world</div>, document.getElementById("root"));
+const App = () => (
+    <div>
+        <Example></Example>
+        <TPPFormPanel></TPPFormPanel>
+    </div>
+);
+
+render(<App />, document.getElementById("root"));
