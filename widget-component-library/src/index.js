@@ -1,10 +1,10 @@
 import React from "react";
 import {render} from "react-dom";
-import Example from "./lib/components/example"
+import TPPFormWidget from "./lib/components/TPPFormWidget"
 
 const App = () => (
     <div>
-        <Example></Example>
+        <TPPFormWidget></TPPFormWidget>
     </div>
 );
 
