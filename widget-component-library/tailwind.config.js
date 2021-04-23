@@ -5,6 +5,14 @@ module.exports = {
   },
   mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  daisyui: {
+    styled: true,
+    themes: true,
+    resets: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+  },
   theme: {
     cursor: {
       auto: 'auto',
@@ -31,6 +39,7 @@ module.exports = {
       'secondary': '#785DFF'
     }),
     extend: {
+      colors: require('daisyui/colors'),
       backgroundImage: {
         'top-blur': "url('/dfame-bg.svg')",
         'bubble': "url('/bubblebg.svg')",
