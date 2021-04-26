@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useOvermind, getNetworkDisplay } from "../../stores/Overmind";
 import Link from "next/link";
-import TPPList from "../tpp/TPPList";
 import { TextField, CircularProgress } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { createFilterOptions } from '@material-ui/lab/Autocomplete';

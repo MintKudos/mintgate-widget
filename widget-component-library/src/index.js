@@ -1,10 +1,12 @@
 import React from "react";
 import {render} from "react-dom";
-import Example from "./lib/components/example"
+import TPPFormWidget from "./lib/components/TPPFormWidget"
+import './index.css';
+import "tailwindcss/tailwind.css"
 
 const App = () => (
     <div>
-        <Example></Example>
+        <TPPFormWidget></TPPFormWidget>
     </div>
 );
 
