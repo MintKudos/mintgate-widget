@@ -1,6 +1,6 @@
 import React from "react";
 
-function TPPCardEmbedd() {  
+function TPPCardEmbed() {  
 
   return(
     <div data-theme="light">  {/* 
@@ -39,4 +39,4 @@ function TPPCardEmbedd() {
   );
 }
 
-export default TPPCardEmbedd
+export default TPPCardEmbed

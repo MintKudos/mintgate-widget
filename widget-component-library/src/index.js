@@ -1,8 +1,8 @@
 import React from "react";
 import {render} from "react-dom";
 import TPPFormWidget from "./lib/components/TPPFormWidget"
-import TPPCardWideEmbedd from "./lib/components/TPPCardWideEmbedd"
-import TPPCardEmbedd from "./lib/components/TPPCardEmbedd"
+import TPPCardWideEmbed from "./lib/components/TPPCardWideEmbed"
+import TPPCardEmbed from "./lib/components/TPPCardEmbed"
 import TPPLinksList from "./lib/components/TPPLinksList"
 import TPPLinksGrid from "./lib/components/TPPLinksGrid"
 import './index.css';
@@ -16,10 +16,10 @@ const App = () => (
         </div>
         <div>
         <h1 className="mx-3  mt-8 mb-2 font-heading font-semibold text-2xl">Token Gating Link Wide Embedd</h1>
-        <TPPCardWideEmbedd></TPPCardWideEmbedd>
+        <TPPCardWideEmbed></TPPCardWideEmbed>
         </div>
         <h1 className="mx-3 mt-8 mb-2 font-heading font-semibold text-2xl">Token Gating Link Card Embedd</h1>
-        <TPPCardEmbedd></TPPCardEmbedd>
+        <TPPCardEmbed></TPPCardEmbed>
         <h1 className="mx-3 mt-8 mb-2 font-heading font-semibold text-2xl">Token Gating Link Wide List</h1>
         <TPPLinksList></TPPLinksList>
         <h1 className="mx-3 mt-8 mb-2 font-heading font-semibold text-2xl">Token Gating Card Grid</h1>

@@ -1,6 +1,6 @@
 import React from "react";
 import Masonry from 'react-masonry-css';
-import TPPCardEmbedd from "./TPPCardEmbedd"
+import TPPCardEmbed from "./TPPCardEmbed"
 
 function TPPLinksGrid() {  
 
@@ -36,13 +36,13 @@ function TPPLinksGrid() {
         className="flex h-auto flex-wrap w-auto"
         breakpointCols={breakpointColumnsObj}
       >
-              <TPPCardEmbedd />
-              <TPPCardEmbedd />
-              <TPPCardEmbedd />
-              <TPPCardEmbedd />
-              <TPPCardEmbedd />
-              <TPPCardEmbedd />
-              <TPPCardEmbedd />
+              <TPPCardEmbed />
+              <TPPCardEmbed />
+              <TPPCardEmbed />
+              <TPPCardEmbed />
+              <TPPCardEmbed />
+              <TPPCardEmbed />
+              <TPPCardEmbed />
       </Masonry>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import TPPCardWideEmbedd from "./TPPCardWideEmbedd"
+import TPPCardWideEmbed from "./TPPCardWideEmbed"
 
 function TPPLinksList() {  
 
@@ -24,10 +24,10 @@ function TPPLinksList() {
       - synthwave
       - valentine  */}
       <div className="space-y-4">
-      <TPPCardWideEmbedd />
-      <TPPCardWideEmbedd />
-      <TPPCardWideEmbedd />
-      <TPPCardWideEmbedd />
+      <TPPCardWideEmbed />
+      <TPPCardWideEmbed />
+      <TPPCardWideEmbed />
+      <TPPCardWideEmbed />
       </div>
       </div>
   );
