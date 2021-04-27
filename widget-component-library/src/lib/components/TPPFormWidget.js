@@ -6,7 +6,7 @@ function TPPFormWidget() {
   const [nextStepOpen, setNextStepOpen] = useState(false);
 
   return(
-    <div data-theme="luxury">  {/* 
+    <div data-theme="light">  {/* 
       17 Themes are available: 
       - aqua
       - black
@@ -25,15 +25,15 @@ function TPPFormWidget() {
       - retro
       - synthwave
       - valentine  */}
-      <div class="h-full w-full card-body bg-base-100">
-        <div class="form-control">
-        <label class="label">
-                <span class="font-heading font-semibold label-text">Enter Link To Gate</span>
+      <div className="h-full w-full card-body bg-base-100">
+        <div className="form-control">
+        <label className="label">
+                <span className="font-heading font-semibold label-text">Enter Link To Gate</span>
               </label> 
-          <div class="relative ">
-            <input type="text" placeholder="Paste the link you wanna token gate" class={`w-full pr-16 input ring-4 ring-primary ring-opacity-20 focus:ring-primary focus:ring-4 label-text font-body font-medium ${nextStepOpen ? '' : ''}`} /> 
+          <div className="relative ">
+            <input type="text" placeholder="Paste the link you wanna token gate" className={`w-full pr-16 input ring-4 ring-primary ring-opacity-20 focus:ring-primary focus:ring-4 label-text font-body font-medium ${nextStepOpen ? '' : ''}`} /> 
             <button onClick={() => {
-                            setNextStepOpen(true);}} class={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</button>
+                            setNextStepOpen(true);}} className={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</button>
           </div>
         </div> 
         <Transition
@@ -46,24 +46,24 @@ function TPPFormWidget() {
           leaveTo="opacity-0 translate-y-1"
         >
             {/* Enter Token Title */}
-            <div class="form-control mt-4">
-              <label class="label">
-                <span class="font-heading font-semibold label-text">Title</span>
-              </label> 
-              <input type="text" placeholder="Title of your Gated Link" class="font-body font-medium input label-text input-bordered" /> 
+            <div className="form-control mt-4">
+            <label className="label mt-4">
+              <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
+            </label> 
+              <input type="text" placeholder="Title of your Gated Link" className="font-body font-medium input label-text input-bordered" /> 
             </div>
 
-          <label class="label mt-4">
-              <span class="font-heading font-semibold label-text">Set Gated Link Details</span>
+          <label className="label mt-4">
+              <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
             </label> 
-          <div class="card bg-base-200 shadow mb-6">
-            <div class="card-body -mt-3 space-y-4">
+          <div className="card bg-base-200 shadow mb-6">
+            <div className="card-body -mt-3 space-y-4">
               {/* Select Token Type */}
               <div>
-                <label class="label">
-                  <span class="label-text">Token Type</span>
-                </label> 
-                <select class="font-body font-medium select select-bordered w-full label-text">
+              <label className="label">
+              <span className="font-heading font-medium label-text">Token Type</span>
+            </label> 
+                <select className="font-body font-medium select select-bordered w-full label-text">
                   <option selected="selected">MintGate NFT</option> 
                   <option>ERC-20 Tokens</option> 
                   <option>NFT (ERC-721 Tokens)</option> 
@@ -77,10 +77,10 @@ function TPPFormWidget() {
 
               {/* Select Token */}
               <div className="w-1/2">
-                <label class="label">
-                  <span class="label-text">Select Token</span>
+                <label className="label">
+                  <span className="font-heading font-medium label-text">Select Token</span>
                 </label> 
-                <select class="font-body font-medium select select-bordered label-text w-full">
+                <select className="font-body font-medium select select-bordered label-text w-full">
                   <option selected="selected">Token 1</option> 
                   <option>Token 2</option> 
                   <option>Token 3</option> 
@@ -89,19 +89,19 @@ function TPPFormWidget() {
 
               {/* Enter Minimum Amount */}
               <div className="w-1/2">
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Minimum Amount</span>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="font-heading font-medium label-text">Minimum Amount</span>
                   </label> 
-                  <input type="number" placeholder="1" class="font-body font-medium input label-text input-bordered" />
+                  <input type="number" placeholder="1" className="font-body font-medium input label-text input-bordered" />
                 </div>
               </div>
 
               </div>
             </div>
           </div>
-          <div class="form-control mt-8">
-            <input type="button" value="Create Gated Link" class="btn btn-primary hover:btn-secondary" />
+          <div className="form-control mt-8">
+            <input type="button" value="Create Gated Link" className="btn btn-primary hover:btn-secondary" />
           </div>
         </Transition>
       </div>

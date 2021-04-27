@@ -11,7 +11,7 @@ module.exports = {
     resets: true,
     utils: true,
     logs: true,
-    rtl: false,
+    rtl: true,
   },
   theme: {
     cursor: {
@@ -34,10 +34,7 @@ module.exports = {
       'mfs': { paintOrder: 'markers fill stroke' },
       'msf': { paintOrder: 'markers stroke fill' },
     },
-    gradientColorStops: theme => ({
-      'primary': '#FF8CFF',
-      'secondary': '#785DFF'
-    }),
+   
     extend: {
       colors: require('daisyui/colors'),
       backgroundImage: {
