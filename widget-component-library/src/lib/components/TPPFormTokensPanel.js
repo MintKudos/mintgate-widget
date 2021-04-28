@@ -6,7 +6,7 @@ function TPPFormWidget() {
   const [nextStepOpen, setNextStepOpen] = useState(false);
 
   return(
-    <div data-theme="cupcake">  {/* 
+    <div data-theme="luxury">  {/* 
       17 Themes are available: 
       - aqua
       - black
@@ -28,12 +28,12 @@ function TPPFormWidget() {
       <div className="h-full w-full card-body bg-base-100">
         <div className="form-control">
         <label className="label">
-                <span className={`font-heading font-semibold label-text ${nextStepOpen ? 'hidden' : ''}`}>Enter Link To Gate</span>
+                <span className="font-heading font-semibold label-text">Enter Link To Gate</span>
               </label> 
           <div className="relative ">
-            <input type="text" placeholder="Paste the link you wanna token gate" className={`w-full pr-16 input focus:ring-primary focus:ring-4 label-text text-base font-heading font-semibold ${nextStepOpen ? 'input-gohst' : 'ring-4 ring-primary ring-opacity-20'}`} /> 
+            <input type="text" placeholder="Paste the link you wanna token gate" className={`w-full pr-16 input ring-4 ring-primary ring-opacity-20 focus:ring-primary focus:ring-4 label-text font-body font-medium ${nextStepOpen ? '' : ''}`} /> 
             <button onClick={() => {
-              setNextStepOpen(true);}} className={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</button>
+                            setNextStepOpen(true);}} className={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</button>
           </div>
         </div> 
         <Transition
@@ -54,10 +54,8 @@ function TPPFormWidget() {
             </div>
 
           <label className="label mt-4">
-            <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
-          </label> 
-
-          {/* Beginning of the Token Details Card */}
+              <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
+            </label> 
           <div className="card bg-base-200 shadow mb-6">
             <div className="card-body -mt-3 space-y-4">
               {/* Select Token Type */}
@@ -98,23 +96,12 @@ function TPPFormWidget() {
                   <input type="number" placeholder="1" className="font-body font-medium input label-text input-bordered" />
                 </div>
               </div>
+
               </div>
             </div>
           </div>
-          {/* Add another token button */}
-          <button class="btn btn-primary hover:btn-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-            </svg>
-            Add Token
-          </button> 
-
-          {/* Generate Link and Loading button */}
           <div className="form-control mt-8">
-            <input type="button" value="Create Gated Link" className="btn btn-primary hover:btn-secondary" />
-            {/* Loading Button
-            <button className="btn btn-primary loading">loading</button> 
-            */}
+            <button type="button" value="Create Gated Link" className="btn btn-primary hover:btn-secondary" />
           </div>
         </Transition>
       </div>
