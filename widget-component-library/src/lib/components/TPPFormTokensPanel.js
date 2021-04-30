@@ -134,6 +134,19 @@ async function getEthTokens() {
 
       setTokenAddress(addr);
 
+    };
+
+    let selectDisplay;
+
+    if (userSelectedType !== "1" &&
+    userSelectedType !== "-1")
+
+    {
+      selectDisplay = (
+        <>
+        <div></div>
+        </>
+      )
     }
 
     
@@ -142,7 +155,7 @@ async function getEthTokens() {
   return(
     <>
     <div key={userSelectedType}>
-          <label className="label mt-4">
+          <label className="label">
               <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
             </label> 
           <div className="card bg-base-200 shadow mb-6">
@@ -176,7 +189,10 @@ async function getEthTokens() {
                   <label className="label">
                     <span className="label-text">Token Address</span>
                   </label> 
-                  <input value={tokenAddress} className="font-body font-medium input label-text input-bordered" />
+                  <input value={tokenAddress} 
+                  onChange={onValueChange}
+                  onInputChange={onValueChange}
+                  className="font-body font-medium input label-text input-bordered" />
                 </div>
               </div>
             ) : null

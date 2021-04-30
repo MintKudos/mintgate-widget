@@ -11,10 +11,18 @@ function isNumeric(n) {
   return !isNaN(parseFloat(n) && isFinite(n));
 }
 
+const TOKEN_DEFAULT = {
+  userSelectedType: "1",
+  amount: "1",
+  tokenAddress: "",
+  subid: 0,
+  network: '1'
+}
+
 function TPPFormWidget(props, preselect, onClose) { 
   const[linkTitle, setLinkTitle] = useState('');
   const[formURL, setFormURL] = useState('');
-  const [list, { set, push, updateAt, insertAt, update, updateFirst, upsert, sort, filter, removeAt, clear, reset}] = useList([]);
+  const [list, { set, push, updateAt, insertAt, update, updateFirst, upsert, sort, filter, removeAt, clear, reset}] = useList([TOKEN_DEFAULT]);
   const router = useRouter();
   const[nftSelected, setnftSelected] = useState(false);
   const[isLoading, setLoading] = useState(false);
@@ -186,23 +194,60 @@ function TPPFormWidget(props, preselect, onClose) {
               id="linkTitle"
               name="linkTitle"
               placeholder="Title of your Gated Link" className="font-body font-medium input label-text input-bordered" /> 
-            </div>
+            </div>ç
+            {list.map((field, idx) => {
+            return (
+              <div key={idx} className={`clear-both bg-white border border-gray-200 shadow-md rounded-xl p-4 mb-4 && 'hidden'}`}>
+                {idx > 0 && // Remove Token Button
+                  <button onClick={() => removeAt(idx)}
+                    className="float-right mb-2 -mt-1 rounded-md text-gray-900 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <span className="sr-only">Close panel</span>
+                    <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                }
 
-          {/* Beginning of the Token Details Card */}
-          <TPPFormTokenPanel 
-          
-          />
-          {/* Add another token button */}
-          <button className="btn btn-primary hover:btn-secondary">
+                <TPPFormTokenPanel
+                  tokenAddress={field.tokenAddress}
+                  setTokenAddress={(x) => updateAt(idx, { ...field, tokenAddress: x })}
+                  amount={field.amount}
+                  setAmount={(x) => updateAt(idx, { ...field, amount: x })}
+                  preselect={preselect}
+                  setNetwork={(x) => updateAt(idx, { ...field, network: x })}
+                  network={field.network}
+                  userSelectedType={field.userSelectedType}
+                  setUserSelectedType={(x) => {
+                    console.log(idx, 'setUserSelectedType', x);
+                    updateAt(idx, {
+                      ...field,
+                      userSelectedType: x,
+                      tokenAddress: x === "-1" ? 'Ether' : ''
+                    })
+                  }}
+
+                  setSubid={(x) => updateAt(idx, { ...field, subid: x })}
+                />
+
+              </div>
+            );
+          })}
+        
+
+          {!nftSelected &&
+          <button type="button" className="btn btn-primary hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT})}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
             </svg>
             Add Token
           </button> 
+          }
 
           {/* Generate Link and Loading button */}
           <div className="form-control mt-8">
-            <input type="button" value="Create Gated Link" className="btn btn-primary hover:btn-secondary" />
+            <button type="submit" className="btn btn-primary hover:btn-secondary">
+              Create a Gated Link
+            </button>
             {/* Loading Button
             <button className="btn btn-primary loading">loading</button> 
             */}
