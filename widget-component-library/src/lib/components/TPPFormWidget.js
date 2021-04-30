@@ -11,7 +11,7 @@ function isNumeric(n) {
   return !isNaN(parseFloat(n) && isFinite(n));
 }
 
-function TPPFormWidget({preselect, onClose, props}) { 
+function TPPFormWidget({preselect, onClose}, props) { 
   const[linkTitle, setLinkTitle] = useState('');
   const[formURL, setFormURL] = useState('');
   const [list, { set, push, updateAt, insertAt, update, updateFirst, upsert, sort, filter, removeAt, clear, reset}] = useList([]);
