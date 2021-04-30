@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import TPPFormTokenPanel from "./TPPFormTokensPanel";
 
-function TPPFormWidget() {  
+function TPPFormWidget(props) { 
 
   const [nextStepOpen, setNextStepOpen] = useState(false);
 
   return(
-    <div data-theme="cupcake">  {/* 
+    <div data-theme={props.theme}>  {/* 
       17 Themes are available: 
       - aqua
       - black
