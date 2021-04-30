@@ -1,8 +1,127 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
+import { useRouter } from "next/router";
 import TPPFormTokenPanel from "./TPPFormTokensPanel";
+import { useList } from 'react-use';
 
-function TPPFormWidget(props) { 
+const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || 'https://mgate.io'
+
+
+function isNumeric(n) {
+  return !isNaN(parseFloat(n) && isFinite(n));
+}
+
+function TPPFormWidget({preselect, onClose, props}) { 
+  const[linkTitle, setLinkTitle] = useState('');
+  const[formURL, setFormURL] = useState('');
+  const [list, { set, push, updateAt, insertAt, update, updateFirst, upsert, sort, filter, removeAt, clear, reset}] = useList([]);
+  const router = useRouter();
+  const[nftSelected, setnftSelected] = useState(false);
+  const[isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const nftSelected = sp.get('tid') || false;
+    setnftSelected(nftSelected);
+    if (nftSelected) updateAt(0, {...list[0], tokenAddress: nftSelected, userSelectedType: "1", amount: '1'})
+  }, []);
+
+  const onSubmit = function (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (isLoading) return;
+
+    const tokenParams = list.map((x, idx) => {
+      if(x.tokenAddress.indexOf("0x") === "-1" && x.userSelectedType !== "1" && x.userSelectedType !=="-1") {
+        window.alert(`Please enter a valid token address. not a valid address.`
+        );
+        return null;
+      }
+
+      if(!isNumeric(x.amount)) {
+        window.alert("Please enter a valid number of minimum token balance.");
+        return null;
+      }
+
+      if(!x.tokenAddress || x.tokenAddress === "DEFAULT") {
+        alert("Please enter or select a token");
+        return;
+      }
+
+      return {
+        network: x.network || 0,
+        subid: x.subid || 0, 
+        ttype: x.userSelectedType,
+        balance: x.amount || "1",
+        token: x.tokenAddress
+      }
+    });
+
+    if (tokenParams.filter(x => !x).length > 0) return;
+
+    let url = formURL;
+    if(url.indexOf('http') === -1) url=`https://${url}`;
+
+    try {
+      new URL(url);
+      if (url.indexOf('.') === -1) throw new Error('no domain');
+    } catch(e) {
+      return alert(`Invalid URL ${url}, please check the link address.`);
+    }
+    
+    let _url = new URL(`${TPP}/api/v2/links/create`);
+
+    let jwttoken = props.jwttoken;
+
+    if(!jwttoken) throw new Error('no JWT token. Pass in your JWT token which you can find at https://mintgate,.app/token_api');
+
+    const v2Params = {
+      "title": linkTitle,
+      jwt: props.jwttoken
+    }
+
+    fetch(_url.toString(), {
+      method: 'POST',
+      headers: {
+        'Accept': 'application.json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(v2Params)
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if(data && (data.status === 'fail')) {
+        setLoading(false);
+        let msg = data.message;
+        if (data.details) msg += ': ' + JSON.stringify(data.details, null);
+        alert("Form Error: " + msg);
+        console.log(e);
+        return;
+      }
+
+      const link = data.url;
+
+      setTimeout(() => {
+        if (preselect) window.location.reload();
+        else {
+          const qs = new URLSearchParams(window.location.search);
+          if (qs.get('tid')) router.push(`/t/${qs.get('tid')}?created=success`)
+          else if (qs.get('returnTo')) {
+            const returnTo = new URL(decodeURIComponent(qs.get('returnTo')));
+            returnTo.searchParams.set('link', link);
+            window.location.href = returnTo.toString();
+            return;
+          }
+          else router.push("/ttp/linkdisplay")
+        }
+        if (onClose) onClose();
+      }, 10);
+    })
+    .catch((e) => {
+      alert("Oh no! We have an error: " + e.toString());
+      setLoading(false);
+      console.log(e);
+    })
+  }
 
   const [nextStepOpen, setNextStepOpen] = useState(false);
 
@@ -32,7 +151,14 @@ function TPPFormWidget(props) {
                 <span className={`font-heading font-semibold label-text ${nextStepOpen ? 'hidden' : ''}`}>Enter Link To Gate</span>
               </label> 
           <div className="relative ">
-            <input type="text" placeholder="Paste the link you wanna token gate" className={`w-full pr-16 input focus:ring-primary focus:ring-4 label-text text-base font-heading font-semibold ${nextStepOpen ? 'input-gohst' : 'ring-4 ring-primary ring-opacity-20'}`} /> 
+            <input 
+            required
+            value={formURL}
+            onChange={(e) => setFormURL(e.target.value)}
+            id="form_url"
+            name="contentURL"
+            type="text" 
+            placeholder="Paste the link you wanna token gate" className={`w-full pr-16 input focus:ring-primary focus:ring-4 label-text text-base font-heading font-semibold ${nextStepOpen ? 'input-gohst' : 'ring-4 ring-primary ring-opacity-20'}`} /> 
             <button onClick={() => {
               setNextStepOpen(true);}} className={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</button>
           </div>
@@ -51,14 +177,18 @@ function TPPFormWidget(props) {
               <label className="label">
                 <span className="font-heading font-semibold label-text">Title</span>
               </label> 
-              <input type="text" placeholder="Title of your Gated Link" className="font-body font-medium input label-text input-bordered" /> 
+              <input required type="text"
+              onChange={(e) => setLinkTitle(e.target.value)} 
+              id="linkTitle"
+              name="linkTitle"
+              placeholder="Title of your Gated Link" className="font-body font-medium input label-text input-bordered" /> 
             </div>
 
           {/* Beginning of the Token Details Card */}
           <TPPFormTokenPanel />
           {/* Add another token button */}
-          <button class="btn btn-primary hover:btn-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <button className="btn btn-primary hover:btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
             </svg>
             Add Token
