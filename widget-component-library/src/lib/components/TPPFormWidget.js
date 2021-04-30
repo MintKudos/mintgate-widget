@@ -11,7 +11,7 @@ function isNumeric(n) {
   return !isNaN(parseFloat(n) && isFinite(n));
 }
 
-function TPPFormWidget({preselect, onClose}, props) { 
+function TPPFormWidget(props, preselect, onClose) { 
   const[linkTitle, setLinkTitle] = useState('');
   const[formURL, setFormURL] = useState('');
   const [list, { set, push, updateAt, insertAt, update, updateFirst, upsert, sort, filter, removeAt, clear, reset}] = useList([]);
@@ -145,7 +145,11 @@ function TPPFormWidget({preselect, onClose}, props) {
       - retro
       - synthwave
       - valentine  */}
-      <div className="h-full w-full card-body bg-base-100">
+      <form 
+      id="tppform"
+      name="tppcreate"
+      onSubmit={onSubmit}
+      className="h-full w-full card-body bg-base-100">
         <div className="form-control">
         <label className="label">
                 <span className={`font-heading font-semibold label-text ${nextStepOpen ? 'hidden' : ''}`}>Enter Link To Gate</span>
@@ -185,7 +189,9 @@ function TPPFormWidget({preselect, onClose}, props) {
             </div>
 
           {/* Beginning of the Token Details Card */}
-          <TPPFormTokenPanel />
+          <TPPFormTokenPanel 
+          
+          />
           {/* Add another token button */}
           <button className="btn btn-primary hover:btn-secondary">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -202,7 +208,7 @@ function TPPFormWidget({preselect, onClose}, props) {
             */}
           </div>
         </Transition>
-      </div>
+      </form>
     </div>
   );
 }
