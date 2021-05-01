@@ -144,7 +144,28 @@ async function getEthTokens() {
     {
       selectDisplay = (
         <>
-        <div></div>
+          <div className="w-full">
+            <div className="card bg-base-200 shadow">
+                <label className="label">
+                  <span className="label-text">Network</span>
+                </label> 
+                <select 
+                id="form_ttype"
+                name="tokenType"
+                value={userSelectedType}
+                onChange={onTypeChange}
+                className="font-body font-medium select select-bordered w-full label-text">
+                  <option value="1">Ethereum Mainnet</option> 
+                  <option value="100">xDai</option> 
+                  <option value="137">Matic</option> 
+                  <option value="122">Fuse</option> 
+                  <option value="42">Ethereum Kovan</option>
+                  <option value="3">Ethereum Ropsten</option>
+                  <option value="4">Ethereum Rinkeby</option>
+                  <option value="5">Ethereum Goerli</option>
+                </select>
+              </div>
+              </div>
         </>
       )
     }
@@ -158,8 +179,8 @@ async function getEthTokens() {
           <label className="label">
               <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
             </label> 
-          <div className="card bg-base-200 shadow mb-6">
-            <div className="card-body -mt-3 space-y-4">
+          <div className="card bg-base-200 shadow">
+            <div className="card-body space-y-4">
               {/* Select Token Type */}
               <div>
                 <label className="label">
@@ -170,7 +191,7 @@ async function getEthTokens() {
                 name="tokenType"
                 value={userSelectedType}
                 onChange={onTypeChange}
-                className="font-body font-medium select select-bordered w-full label-text">
+                className="font-body font-medium select select-bordered label-text">
                   <option value="1">MintGate NFT</option> 
                   <option value="20">ERC-20 Tokens</option> 
                   <option value="721">NFT (ERC-721 Tokens)</option> 
@@ -180,12 +201,13 @@ async function getEthTokens() {
                 </select>
               </div>
 
-              <div className="flex justify-between space-x-4">
-
+              {selectDisplay}
+              <div className="flex flex-col lg:flex-row space-x-4">
+              
               {/*Token Address */}
-            {userSelectedType === "20" ? (
-              <div className="w-1/2">
-                <div className="form-control">
+            {userSelectedType === "20" || userSelectedType === "721" || userSelectedType === "1155"   ? (
+              <div className="flex w-1/3">
+                <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Token Address</span>
                   </label> 
@@ -198,9 +220,49 @@ async function getEthTokens() {
             ) : null
             }
 
+            {userSelectedType === "1" ? (
+              <div className="flex w-1/3">
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text">Token Name</span>
+                  </label> 
+                  <input value={tokenAddress} 
+                  onChange={onValueChange}
+                  onInputChange={onValueChange}
+                  className="font-body font-medium input label-text input-bordered" />
+                </div>
+              </div>
+            ) : null
+            }
+
+            {userSelectedType === "721" ? (
+              <>
+              <div className="flex w-1/3">
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text">Token ID</span>
+                  </label> 
+                  <input type="number" placeholder="721 Token ID" className="font-body font-medium input label-text input-bordered" />
+                </div>
+              </div>
+              </>
+            ): null}
+
+            {userSelectedType === "1155" ? (
+              <>
+              <div className="flex w-1/3">
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text">Token ID</span>
+                  </label> 
+                  <input type="number" placeholder="1155 Token ID" className="font-body font-medium input label-text input-bordered" />
+                </div>
+              </div>
+              </>
+            ): null}  
               {/* Enter Minimum Amount */}
-              <div className="w-1/2">
-                <div className="form-control">
+              <div className="flex w-1/3">
+                <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Minimum Amount</span>
                   </label> 

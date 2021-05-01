@@ -39,11 +39,11 @@ function TPPFormWidget(props, preselect, onClose) {
     if (isLoading) return;
 
     const tokenParams = list.map((x, idx) => {
-      if(x.tokenAddress.indexOf("0x") === "-1" && x.userSelectedType !== "1" && x.userSelectedType !=="-1") {
-        window.alert(`Please enter a valid token address. not a valid address.`
+      /*if((x.tokenAddress.indexOf("0x")) === "-1" && x.userSelectedType !== "1" && x.userSelectedType !=="-1") {
+        window.alert(`Please enter a valid token address. This is not a valid address.`
         );
         return null;
-      }
+      }*/
 
       if(!isNumeric(x.amount)) {
         window.alert("Please enter a valid number of minimum token balance.");
