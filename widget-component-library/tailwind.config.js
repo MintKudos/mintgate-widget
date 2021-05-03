@@ -45,7 +45,6 @@ module.exports = {
         'bubble': "url('/bubblebg.svg')",
         'cta': "url('/cta-bg.jpg')",
         'mint': "url('/mintbg.png')",
-        'mint-second': "url('/mintbgsecond.png')",
         'noise': "url('/noise.png')",
         'main': "url('/main.png')",
         'alternative': "url('/alternative.png')",
