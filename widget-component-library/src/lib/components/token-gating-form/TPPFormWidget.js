@@ -94,10 +94,6 @@ function TPPFormWidget(props, preselect, onClose) {
       jwt: props.jwttoken
     }
 
-    console.log('APIv2', v2Params);
-    console.log('POST url', _url.toString());
-    console.log('URL', url);
-
     fetch(_url.toString(), {
       method: 'POST',
       headers: {
