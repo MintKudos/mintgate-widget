@@ -129,7 +129,7 @@ function TPPFormWidget(props, preselect, onClose) {
             window.location.href = returnTo.toString();
             return;
           }
-          else router.push("./TPPFormLinkDisplay")
+          else router.push(".index2")
         }
         if (onClose) onClose();
       }, 10);
