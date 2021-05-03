@@ -1,6 +1,6 @@
 {
   "name": "@mintgate/react-mintgate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/lib.js",
   "module": "dist/lib.js",
   "files": [
