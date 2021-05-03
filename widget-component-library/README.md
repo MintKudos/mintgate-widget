@@ -19,7 +19,7 @@ Go to https://www.mintgate.app/. Log into the Twitter account that you want to u
 5. Integration. In your app integration, you need to pass the Widget Token as a prop. For example:
 
 ```
-import TPPFormWidget from "./lib/components/token-gating-form/TPPFormWidget"
+import {TPPFormWidget} from "@mintgate/react-mintgate"
 
 const App = () => (
     <div>
@@ -48,7 +48,7 @@ const App = () => (
       - valentine 
 
 ```
-import TPPFormWidget from "./lib/components/token-gating-form/TPPFormWidget"
+import {TPPFormWidget} from "@mintgate/react-mintgate"
 
 const App = () => (
     <div>
