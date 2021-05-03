@@ -124,7 +124,6 @@ async function getEthTokens() {
       selectDisplay = (
         <>
           <div className="w-full">
-            <div className="card bg-base-200 shadow">
                 <label className="label">
                   <span className="label-text">Network</span>
                 </label> 
@@ -144,18 +143,17 @@ async function getEthTokens() {
                   <option value="5">Ethereum Goerli</option>
                 </select>
               </div>
-              </div>
         </>
       )
     }
 
   return(
     <>
-    <div key={userSelectedType} className="card">
+    <div key={userSelectedType} className="mt-4 card">
           <label className="label">
               <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
             </label> 
-          <div className="card bg-base-200 shadow">
+          <div className="card bg-base-200 shadow w-full ">
             <div className="card-body space-y-4">
               {/* Select Token Type */}
               <div>
@@ -167,7 +165,7 @@ async function getEthTokens() {
                 name="tokenType"
                 value={userSelectedType}
                 onChange={onTypeChange}
-                className="font-body font-medium select select-bordered label-text">
+                className="font-body font-medium select w-full select-bordered label-text">
                   <option value="1">MintGate NFT</option> 
                   <option value="20">ERC-20 Tokens</option> 
                   <option value="721">NFT (ERC-721 Tokens)</option> 
@@ -182,7 +180,7 @@ async function getEthTokens() {
               
               {/*Token Address */}
             {userSelectedType === "20" || userSelectedType === "721" || userSelectedType === "1155"   ? (
-              <div className="flex w-full lg:w-1/3">
+              <div className="flex w-full">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Token Address</span>
@@ -190,14 +188,14 @@ async function getEthTokens() {
                   <input 
                   value={tokenAddress} 
                   onChange={onValueChange}
-                  className="font-body font-medium input label-text input-bordered" />
+                  className="font-body font-medium input w-full label-text input-bordered" />
                 </div>
               </div>
             ) : null
             }
 
             {userSelectedType === "1" ? (
-              <div className="flex  w-full lg:w-1/3">
+              <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Token Name</span>
@@ -214,7 +212,7 @@ async function getEthTokens() {
 
             {userSelectedType === "721" ? (
               <>
-              <div className="flex  w-full lg:w-1/3">
+              <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Token ID</span>
@@ -227,7 +225,7 @@ async function getEthTokens() {
 
             {userSelectedType === "1155" ? (
               <>
-              <div className="flex w-full lg:w-1/3">
+              <div className="flex w-full ">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Token ID</span>
@@ -242,8 +240,9 @@ async function getEthTokens() {
               </div>
               </>
             ): null}  
+              </div>
               {/* Enter Minimum Amount */}
-              <div className="flex  w-full lg:w-1/3">
+              <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Minimum Amount</span>
@@ -255,8 +254,6 @@ async function getEthTokens() {
                   placeholder="1" 
                   className="font-body font-medium input label-text input-bordered" />
                 </div>
-              </div>
-
               </div>
             </div>
           </div>
