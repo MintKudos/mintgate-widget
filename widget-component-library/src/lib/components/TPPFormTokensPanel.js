@@ -179,7 +179,8 @@ async function getEthTokens() {
               <div className="flex flex-col lg:flex-row space-x-4">
               
               {/*Token Address */}
-            {userSelectedType === "20" || userSelectedType === "721" || userSelectedType === "1155"   ? (
+            {userSelectedType === "20" || userSelectedType === "721" || userSelectedType === "1155" ||
+            userSelectedType === "2"   ? (
               <div className="flex w-full">
                 <div className="form-control w-full">
                   <label className="label">

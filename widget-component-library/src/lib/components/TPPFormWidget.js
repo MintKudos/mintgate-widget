@@ -181,7 +181,7 @@ function TPPFormWidget(props, preselect, onClose) {
             id="form_url"
             name="contentURL"
             type="text" 
-            placeholder="Paste the link you wanna token gate" className={`w-full pr-16 input focus:ring-primary focus:ring-4 label-text text-base font-heading font-semibold ${nextStepOpen ? 'input-gohst' : 'ring-4 ring-primary ring-opacity-20'}`} /> 
+            placeholder="Paste the link you want to token gate" className={`w-full pr-16 input focus:ring-primary focus:ring-4 label-text text-sm font-heading font-semibold ${nextStepOpen ? 'input-gohst' : 'ring-4 ring-primary ring-opacity-20'}`} /> 
             <span onClick={() => {
               setNextStepOpen(true);}} className={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</span>
           </div>
