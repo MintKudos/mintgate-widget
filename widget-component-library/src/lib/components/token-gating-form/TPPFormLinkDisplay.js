@@ -11,11 +11,11 @@ function tpplink(props) {
               </label> 
               <div class="relative">
           <input required
-                  value="link"
+                  value={props.link}
                   id="link"
                   name="link"
                   type="text" className="w-full pr-16 input label-text ring-4 ring-primary text-base" /> 
-          <button onClick={() => navigator.clipboard.writeText("link")} className="absolute right-0 rounded-l-none btn btn-primary">copy</button>
+          <button onClick={() => navigator.clipboard.writeText(props.link)} className="absolute right-0 rounded-l-none btn btn-primary">copy</button>
         </div>
         </div>
         </div>

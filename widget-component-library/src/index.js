@@ -1,14 +1,12 @@
 import React from "react";
 import {render} from "react-dom";
-import TPPFormWidget from "./lib/components/TPPFormWidget"
+import TPPFormWidget from "./lib/components/token-gating-form/TPPFormWidget"
 import './index.css';
 import "tailwindcss/tailwind.css"
-import TPPLinkDisplay from "./lib/components/TPPFormLinkDisplay"
 
 const App = () => (
     <div>
-        <TPPFormWidget jwttoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIyNyIsInNjb3BlcyI6WyJ3aWRnZXQiXSwid2lkZ2V0Ijp0cnVlLCJpYXQiOjE2MTk3OTQxMzR9.2ovKcCPzZ_LheodhwwIYqnjg9_Wu_KI6L96FkqEUC_Y" theme="aqua"></TPPFormWidget>
-        <TPPLinkDisplay theme="aqua"></TPPLinkDisplay>
+        <TPPFormWidget jwttoken={process.env.REACT_APP_JWT} theme=""></TPPFormWidget>
     </div>
 );
 

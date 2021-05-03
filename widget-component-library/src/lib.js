@@ -1,4 +1,4 @@
-import TPPFormWidget from "./lib/components/TPPFormWidget"
+import TPPFormWidget from "./lib/components/token-gating-form/TPPFormWidget"
 import './index.css';
 import "tailwindcss/tailwind.css"
 

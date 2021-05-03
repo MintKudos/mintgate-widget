@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
-import { useRouter } from "next/router";
 import TPPFormTokenPanel from "./TPPFormTokensPanel";
 import { useList } from 'react-use';
+import TPPFormLinkDisplay from "./TPPFormLinkDisplay"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || 'https://mgate.io'
 
@@ -11,21 +11,22 @@ function isNumeric(n) {
   return !isNaN(parseFloat(n) && isFinite(n));
 }
 
-const TOKEN_DEFAULT = {
-  userSelectedType: "1",
-  amount: "1",
-  tokenAddress: "",
-  subid: 0,
-  network: '1'
-}
 
 function TPPFormWidget(props, preselect, onClose) { 
+  const TOKEN_DEFAULT = {
+    userSelectedType: props.tokenType || "1",
+    amount: "1",
+    tokenAddress: props.tokenAddress || "",
+    subid: props.subid || 0,
+    network: props.network || '1'
+  }
+
   const[linkTitle, setLinkTitle] = useState('');
   const[formURL, setFormURL] = useState('');
   const [list, { set, push, updateAt, insertAt, update, updateFirst, upsert, sort, filter, removeAt, clear, reset}] = useList([TOKEN_DEFAULT]);
-  const router = useRouter();
   const[nftSelected, setnftSelected] = useState(false);
   const[isLoading, setLoading] = useState(false);
+  const[isCreated, setCreated] = useState(null);
 
   useEffect(() => {
     const sp = new URLSearchParams(window.location.search);
@@ -118,21 +119,8 @@ function TPPFormWidget(props, preselect, onClose) {
 
       const link = data.url;
 
-      setTimeout(() => {
-        if (preselect) window.location.reload();
-        else {
-          const qs = new URLSearchParams(window.location.search);
-          if (qs.get('tid')) router.push(`/t/${qs.get('tid')}?created=success`)
-          else if (qs.get('returnTo')) {
-            const returnTo = new URL(decodeURIComponent(qs.get('returnTo')));
-            returnTo.searchParams.set('link', link);
-            window.location.href = returnTo.toString();
-            return;
-          }
-          else router.push(".index2")
-        }
-        if (onClose) onClose();
-      }, 10);
+      setCreated(link);
+      if (onClose) onClose();
     })
     .catch((e) => {
       alert("Oh no! We have an error: " + e.toString());
@@ -143,6 +131,10 @@ function TPPFormWidget(props, preselect, onClose) {
 
 
   const [nextStepOpen, setNextStepOpen] = useState(false);
+
+  if (isCreated) {
+    return <TPPFormLinkDisplay link={isCreated} theme={props.theme}></TPPFormLinkDisplay>
+  }
 
   return(
     <div data-theme={props.theme}>  {/* 
