@@ -109,6 +109,9 @@ async function getEthTokens() {
     };
 
     const onValueChange = (e) => {
+      if (userSelectedType == "1") {
+        setTokenAddress((e.target.value).toUpperCase)
+      }
       setTokenAddress(e.target.value);
     };
 
@@ -179,7 +182,7 @@ async function getEthTokens() {
               
               {/*Token Address */}
             {userSelectedType === "20" || userSelectedType === "721" || userSelectedType === "1155"   ? (
-              <div className="flex w-1/3">
+              <div className="flex w-full lg:w-1/3">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Token Address</span>
@@ -194,7 +197,7 @@ async function getEthTokens() {
             }
 
             {userSelectedType === "1" ? (
-              <div className="flex w-1/3">
+              <div className="flex  w-full lg:w-1/3">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Token Name</span>
@@ -211,7 +214,7 @@ async function getEthTokens() {
 
             {userSelectedType === "721" ? (
               <>
-              <div className="flex w-1/3">
+              <div className="flex  w-full lg:w-1/3">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Token ID</span>
@@ -224,7 +227,7 @@ async function getEthTokens() {
 
             {userSelectedType === "1155" ? (
               <>
-              <div className="flex w-1/3">
+              <div className="flex w-full lg:w-1/3">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Token ID</span>
@@ -240,7 +243,7 @@ async function getEthTokens() {
               </>
             ): null}  
               {/* Enter Minimum Amount */}
-              <div className="flex w-1/3">
+              <div className="flex  w-full lg:w-1/3">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Minimum Amount</span>

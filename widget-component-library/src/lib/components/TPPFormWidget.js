@@ -87,7 +87,9 @@ function TPPFormWidget(props, preselect, onClose) {
     if(!jwttoken) throw new Error('no JWT token. Pass in your JWT token which you can find at https://mintgate,.app/token_api');
 
     const v2Params = {
+      url,
       "title": linkTitle,
+      tokens: tokenParams,
       jwt: props.jwttoken
     }
 
@@ -127,7 +129,7 @@ function TPPFormWidget(props, preselect, onClose) {
             window.location.href = returnTo.toString();
             return;
           }
-          else router.push("/ttp/linkdisplay")
+          else router.push("/TPPFormLinkDisplay")
         }
         if (onClose) onClose();
       }, 10);
@@ -138,7 +140,6 @@ function TPPFormWidget(props, preselect, onClose) {
       console.log(e);
     })
   }
-
   const [nextStepOpen, setNextStepOpen] = useState(false);
 
   return(
@@ -208,11 +209,9 @@ function TPPFormWidget(props, preselect, onClose) {
               <div key={idx}>
                 {idx > 0 && // Remove Token Button
                   <button onClick={() => removeAt(idx)}
-                    className="float-right mb-2 -mt-1 rounded-md text-gray-900 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    className="float-right mb-2 mt-2 rounded-md text-gray-900 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     <span className="sr-only">Close panel</span>
-                    <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <span className="text-lg label-text">X</span>
                   </button>
                 }
 
