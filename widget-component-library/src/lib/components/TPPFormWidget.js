@@ -44,7 +44,7 @@ function TPPFormWidget(props, preselect, onClose) {
 
     const tokenParams = list.map((x, idx) => {
       if((x.tokenAddress.indexOf("0x")) === "-1" && x.userSelectedType !== "1" && x.userSelectedType !=="-1") {
-        window.alert(`Please enter a valid token address. This is not a valid address.`
+        window.alert(`Please enter a valid token address.`
         );
         return null;
       }
@@ -129,7 +129,7 @@ function TPPFormWidget(props, preselect, onClose) {
             window.location.href = returnTo.toString();
             return;
           }
-          else router.push("/TPPFormLinkDisplay")
+          else router.push("./TPPFormLinkDisplay")
         }
         if (onClose) onClose();
       }, 10);
@@ -140,6 +140,8 @@ function TPPFormWidget(props, preselect, onClose) {
       console.log(e);
     })
   }
+
+
   const [nextStepOpen, setNextStepOpen] = useState(false);
 
   return(
