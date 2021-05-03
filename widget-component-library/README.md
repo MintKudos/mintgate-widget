@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Getting Started with MintGate React Widget Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Current Widgets
+* Token gating form component
 
-## Available Scripts
+You can add the MintGate token gating setup form into your project directly. The form allows anyone on your site to set up a token gated link without accessing the MintGate site.
 
-In the project directory, you can run:
+## Getting Started as a developer
+1. You will need to access your developer keys to get started with the widget integration. Your individual users will not need to get their own developer key, only you as the developer/enterprise would. 
 
-### `yarn start`
+Go to https://www.mintgate.app/. Log into the Twitter account that you want to use the keys of. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Once you have logged in, go to https://www.mintgate.app/token_api. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3. For using the widget, copy your the token key under Widget Token.
 
-### `yarn test`
+4. In your project, install the package. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. Integration. In your app integration, you need to pass the Widget Token as a prop. For example:
 
-### `yarn build`
+```
+import TPPFormWidget from "./lib/components/token-gating-form/TPPFormWidget"
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const App = () => (
+    <div>
+        <TPPFormWidget jwttoken="yourwidgettoken"></TPPFormWidget>
+    </div>
+);
+```
+6. (Optional) We offer 16 different widget styles that you can pass in via the theme prop:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- aqua
+      - black
+      - bumblebee
+      - cupcake
+      - cyberpunk
+      - dark
+      - dracula
+      - fantasy
+      - forest
+      - garden
+      - halloween
+      - light (default)
+      - luxury
+      - pastel
+      - retro
+      - synthwave
+      - valentine 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+import TPPFormWidget from "./lib/components/token-gating-form/TPPFormWidget"
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+const App = () => (
+    <div>
+        <TPPFormWidget jwttoken="yourwidgettoken" theme="themename"></TPPFormWidget>
+    </div>
+);
+```
+    
+### Questions?
+Reach out to devs@mintkudos.com. 
