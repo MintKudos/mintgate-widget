@@ -34,16 +34,20 @@ function TPPFormWidget(props, preselect, onClose) {
     if (nftSelected) updateAt(0, {...list[0], tokenAddress: nftSelected, userSelectedType: "1", amount: '1'})
   }, []);
 
+  
+
   const onSubmit = function (e) {
     if (e.preventDefault) e.preventDefault();
     if (isLoading) return;
+    
+    console.log('list', list)
 
     const tokenParams = list.map((x, idx) => {
-      /*if((x.tokenAddress.indexOf("0x")) === "-1" && x.userSelectedType !== "1" && x.userSelectedType !=="-1") {
+      if((x.tokenAddress.indexOf("0x")) === "-1" && x.userSelectedType !== "1" && x.userSelectedType !=="-1") {
         window.alert(`Please enter a valid token address. This is not a valid address.`
         );
         return null;
-      }*/
+      }
 
       if(!isNumeric(x.amount)) {
         window.alert("Please enter a valid number of minimum token balance.");
@@ -86,6 +90,10 @@ function TPPFormWidget(props, preselect, onClose) {
       "title": linkTitle,
       jwt: props.jwttoken
     }
+
+    console.log('APIv2', v2Params);
+    console.log('POST url', _url.toString());
+    console.log('URL', url);
 
     fetch(_url.toString(), {
       method: 'POST',
@@ -171,8 +179,8 @@ function TPPFormWidget(props, preselect, onClose) {
             name="contentURL"
             type="text" 
             placeholder="Paste the link you wanna token gate" className={`w-full pr-16 input focus:ring-primary focus:ring-4 label-text text-base font-heading font-semibold ${nextStepOpen ? 'input-gohst' : 'ring-4 ring-primary ring-opacity-20'}`} /> 
-            <button onClick={() => {
-              setNextStepOpen(true);}} className={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</button>
+            <span onClick={() => {
+              setNextStepOpen(true);}} className={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</span>
           </div>
         </div> 
         <Transition
@@ -197,7 +205,7 @@ function TPPFormWidget(props, preselect, onClose) {
             </div>ç
             {list.map((field, idx) => {
             return (
-              <div key={idx} className={`clear-both bg-white border border-gray-200 shadow-md rounded-xl p-4 mb-4 && 'hidden'}`}>
+              <div key={idx}>
                 {idx > 0 && // Remove Token Button
                   <button onClick={() => removeAt(idx)}
                     className="float-right mb-2 -mt-1 rounded-md text-gray-900 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -233,7 +241,6 @@ function TPPFormWidget(props, preselect, onClose) {
             );
           })}
         
-
           {!nftSelected &&
           <button type="button" className="btn btn-primary hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT})}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -245,7 +252,8 @@ function TPPFormWidget(props, preselect, onClose) {
 
           {/* Generate Link and Loading button */}
           <div className="form-control mt-8">
-            <button type="submit" className="btn btn-primary hover:btn-secondary">
+            <button type="submit" 
+            className="btn btn-primary hover:btn-secondary">
               Create a Gated Link
             </button>
             {/* Loading Button

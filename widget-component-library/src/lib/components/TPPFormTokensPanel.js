@@ -15,9 +15,6 @@ const filterOptions = createFilterOptions({
 function TPPFormTokenPanel({ 
   amount, setAmount,
   setTokenAddress, tokenAddress,
-  hasAnID,
-  preselect,
-  platformTokenData,
   userSelectedType,
   setUserSelectedType,
   setNetwork,
@@ -111,29 +108,8 @@ async function getEthTokens() {
       setUserSelectedType(e.target.value);
     };
 
-    const onValueChange = (e, newValue) => {
-      if(typeof newValue === "string" && options && newValue.charAt(0) !== "0") {
-        newValue = newValue.toUpperCase();
-        const obj = options.find((elem) => elem.symbol === newValue);
-        if (obj) {
-          newValue = obj.address;
-          localStorage.set('symbol', newValue.symbol); 
-        }
-      }
-
-      let addr;
-
-      if (newValue && newValue.address) {
-        addr = newValue.address;
-      } else {
-        addr = newValue;
-      }
-      if (addr && addr.indexOf("0x") === -1) {
-        return;
-      }
-
-      setTokenAddress(addr);
-
+    const onValueChange = (e) => {
+      setTokenAddress(e.target.value);
     };
 
     let selectDisplay;
@@ -152,8 +128,8 @@ async function getEthTokens() {
                 <select 
                 id="form_ttype"
                 name="tokenType"
-                value={userSelectedType}
-                onChange={onTypeChange}
+                value={network}
+                onChange={e => setNetwork(e.target.value)}
                 className="font-body font-medium select select-bordered w-full label-text">
                   <option value="1">Ethereum Mainnet</option> 
                   <option value="100">xDai</option> 
@@ -170,12 +146,9 @@ async function getEthTokens() {
       )
     }
 
-    
-
-
   return(
     <>
-    <div key={userSelectedType}>
+    <div key={userSelectedType} className="card">
           <label className="label">
               <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
             </label> 
@@ -211,9 +184,9 @@ async function getEthTokens() {
                   <label className="label">
                     <span className="label-text">Token Address</span>
                   </label> 
-                  <input value={tokenAddress} 
+                  <input 
+                  value={tokenAddress} 
                   onChange={onValueChange}
-                  onInputChange={onValueChange}
                   className="font-body font-medium input label-text input-bordered" />
                 </div>
               </div>
@@ -226,7 +199,8 @@ async function getEthTokens() {
                   <label className="label">
                     <span className="label-text">Token Name</span>
                   </label> 
-                  <input value={tokenAddress} 
+                  <input 
+                  value={tokenAddress} 
                   onChange={onValueChange}
                   onInputChange={onValueChange}
                   className="font-body font-medium input label-text input-bordered" />
@@ -255,7 +229,12 @@ async function getEthTokens() {
                   <label className="label">
                     <span className="label-text">Token ID</span>
                   </label> 
-                  <input type="number" placeholder="1155 Token ID" className="font-body font-medium input label-text input-bordered" />
+                  <input type="number" 
+                  name="subid"
+                  id="subid"
+                  onChange={(e) => setSubid(e.target.value)}
+                  placeholder="1155 Token ID" 
+                  className="font-body font-medium input label-text input-bordered" />
                 </div>
               </div>
               </>
@@ -266,7 +245,12 @@ async function getEthTokens() {
                   <label className="label">
                     <span className="label-text">Minimum Amount</span>
                   </label> 
-                  <input type="number" placeholder="1" className="font-body font-medium input label-text input-bordered" />
+                  <input 
+                  type="number" 
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  placeholder="1" 
+                  className="font-body font-medium input label-text input-bordered" />
                 </div>
               </div>
 
