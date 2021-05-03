@@ -1,8 +1,8 @@
 {
   "name": "@mintgate/react-mintgate",
   "version": "0.1.4",
-  "main": "lib.js",
-  "module": "lib.js",
+  "main": "src/lib.js",
+  "module": "src/lib.js",
   "files": [
     "dist",
     "README.md"
