@@ -19,7 +19,6 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-    "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^10.0.0",
     "daisyui": "^0.20.0",
     "react-use": "^17.2.3",
@@ -28,7 +27,7 @@
   "scripts": {
     "build:css": "tailwind build src/index.css -o src/tailwind.css",
     "start": "craco start",
-    "build": "craco build",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
@@ -53,6 +52,7 @@
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.1.0",
     "autoprefixer": "^9",
+    "babel-cli": "^6.26.0",
     "postcss": "^7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
