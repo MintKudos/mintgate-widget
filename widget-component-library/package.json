@@ -1,8 +1,8 @@
 {
   "name": "@mintgate/react-mintgate",
-  "version": "0.1.2",
-  "main": "src/lib.js",
-  "module": "src/lib.js",
+  "version": "0.1.5",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist",
     "README.md"
@@ -19,6 +19,8 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^10.0.0",
     "daisyui": "^0.20.0",
     "react-use": "^17.2.3",
     "web-vitals": "^1.0.1"
