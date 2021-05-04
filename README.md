@@ -24,9 +24,11 @@ export default App;
 ```
 
 Example project in the repo:
-/examples/helloworld
+`/examples/hellowor`
 
-To build a new version:
+
+---
+Internal: to build a new NPM version
 ```bash
 yarn build
 yarn publish
