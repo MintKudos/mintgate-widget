@@ -1,6 +1,6 @@
 {
   "name": "@mintgate/react-mintgate",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": false,
   "source": "src/lib.js",
   "main": "dist/lib.js",
