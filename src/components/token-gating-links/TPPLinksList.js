@@ -1,7 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import TPPCardWideEmbed from "./TPPCardWideEmbed"
 
-function TPPLinksList() {  
+const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
+const [tokenData, setTokenData] = useState();
+
+function TPPLinksList({tokentid}) {  
+
+  useEffect(async () => {
+    const data = await fetch(TPP + '/api/links?tid=' + tokentid).then(x => x.json());
+    setTokenData(data);
+  }, []);
 
   return(
     <div data-theme="light">  {/* 
@@ -24,10 +32,9 @@ function TPPLinksList() {
       - synthwave
       - valentine  */}
       <div className="space-y-4">
-      <TPPCardWideEmbed />
-      <TPPCardWideEmbed />
-      <TPPCardWideEmbed />
-      <TPPCardWideEmbed />
+      {tokenData && tokenData.links.map(l =>
+      <TPPCardWideEmbed l={l} />
+      )}
       </div>
       </div>
   );

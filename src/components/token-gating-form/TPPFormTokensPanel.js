@@ -153,7 +153,7 @@ async function getEthTokens() {
           <label className="label">
               <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
             </label> 
-          <div className="card bg-base-200 shadow w-full ">
+          <div className="card bg-base-200 shadow-lg w-full ">
             <div className="card-body space-y-4">
               {/* Select Token Type */}
               <div>

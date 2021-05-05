@@ -1,6 +1,9 @@
 import React from "react";
+import TPPFormTokenPanel from "../token-gating-form/TPPFormTokensPanel";
+const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
-function TPPCardWideEmbed() {  
+
+function TPPCardWideEmbed({l}) {  
 
   return(
     <div data-theme="light">  {/* 
@@ -23,13 +26,13 @@ function TPPCardWideEmbed() {
       - synthwave
       - valentine  */}
       <div className="mx-4 cursor-pointer">
-        <a href="https://mintgate.app" target="_blank" rel="noreferrer">
+      <a href={TPP + '/go/' + l.id} target="_blank">
           <div className=" w-full card bg-base-100 border border-base-300 p-4  shadow-sm hover:shadow-lg transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:transform-none">
             <div id="header" className="flex flex-wrap sm:flex-nowrap">
-              <img src="https://source.unsplash.com/random/1280x720" alt="Link Title" className="object-cover md:object-cover w-full sm:w-32 max-h-32 rounded-lg"/>
+              <img src={l.img} alt="Link Title" className="object-cover md:object-cover w-full sm:w-32 max-h-32 rounded-lg"/>
               <div id="body" className="flex flex-col mt-6 md:mt-0 ml-5">
-                <h4 id="name" className="card-title text-base-content font-heading text-sm md:text-md font-semibold mb-2">Gated Link - Unlockable with this NFT</h4>
-                <p id="job" className="font-body text-xs md:text-sm text-base-content">A token gated link that is only visitable for the holders of this NFT</p>
+                <h4 id="name" className="card-title text-base-content font-heading text-sm md:text-md font-semibold mb-2">{l.title ? l.title : "Gated Link"} - Gated Link</h4>
+                <p id="job" className="font-body text-xs md:text-sm text-base-content">{l.desc ? l.desc : "A token gated link that is only visitable for the holders of this NFT"}</p>
               </div>
             </div>
           </div>
