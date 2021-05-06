@@ -1,6 +1,6 @@
 {
   "name": "@mintgate/react-mintgate",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "private": false,
   "source": "src/lib.js",
   "main": "dist/lib.js",
@@ -42,7 +42,7 @@
     "build:css": "tailwind build src/index.css -o src/tailwind.css",
     "start": "craco start",
     "dev": "microbundle watch",
-    "build": "microbundle --globals react/jsx-runtime=jsx TPPFormWidget=TPPFormWidget,react=React,react-dom=ReactDOM --jsx React.createElement --jsxImportSource react",
+    "build": "microbundle",
     "build2": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "build_old": "craco build",
     "test": "craco test",
