@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import TPPCardWideEmbed from "./TPPCardWideEmbed"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
-const [tokenData, setTokenData] = useState();
 
 function TPPLinksList({tokentid}) {  
+
+  const [tokenData, setTokenData] = useState();
 
   useEffect(async () => {
     const data = await fetch(TPP + '/api/links?tid=' + tokentid).then(x => x.json());

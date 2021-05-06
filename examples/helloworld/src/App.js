@@ -8,8 +8,13 @@ import { TPPLinksList} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
+      <br />
+      <h1> Token Gated Form</h1>
       <TPPFormWidget theme="default"/>
-      <TPPLinksList tokentid="NUP1ZYYUD906"/>
+      <br />
+      <h1> List of token Gated Link</h1>
+      <br />
+      <TPPLinksList tokentid="$GATE"/>
     </div>
   );
 }
