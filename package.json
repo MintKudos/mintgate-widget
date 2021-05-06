@@ -14,6 +14,12 @@
     "type": "git",
     "url": "https://github.com/MintKudos/mintgate-widget"
   },
+  "resolve": {
+    "alias": {
+      "react/jsx-dev-runtime": "react/jsx-dev-runtime.js",
+      "react/jsx-runtime": "react/jsx-runtime.js"
+    }
+  },
   "dependencies": {
     "@craco/craco": "^6.1.1",
     "@headlessui/react": "^1.0.0",
@@ -32,10 +38,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "postinstall": "yarn run build",
     "build:css": "tailwind build src/index.css -o src/tailwind.css",
     "start": "craco start",
     "dev": "microbundle watch",
-    "build": "microbundle --globals TPPFormWidget=TPPFormWidget,react=React,react-dom=ReactDOM --jsx React.createElement --jsxImportSource react",
+    "build": "microbundle --globals react/jsx-runtime=jsx TPPFormWidget=TPPFormWidget,react=React,react-dom=ReactDOM --jsx React.createElement --jsxImportSource react",
     "build2": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "build_old": "craco build",
     "test": "craco test",
