@@ -16,11 +16,11 @@ function App() {
       <br />
       <h1> List of token Gated Links Example with $CREATOR</h1>
       <br />
-      <TPPLinksList tokentid="$CREATOR"/>
+      <TPPLinksList tokentid="$CREATOR" theme="aqua"/>
       <br />
       <h1> Grid of token Gated Links Example with $GATE </h1>
       <br />
-      <TPPLinksGrid tokentid="$GATE" theme="dark"/>
+      <TPPLinksGrid tokentid="$GATE" theme="aqua"/>
     </div>
   );
 }
