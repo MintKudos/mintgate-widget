@@ -20,7 +20,7 @@ function App() {
       <br />
       <h1> Grid of token Gated Links Example with $GATE </h1>
       <br />
-      <TPPLinksGrid tokentid="$GATE"/>
+      <TPPLinksGrid tokentid="$GATE" theme="dark"/>
     </div>
   );
 }

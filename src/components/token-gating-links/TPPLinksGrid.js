@@ -4,7 +4,7 @@ import TPPCardEmbed from "./TPPCardEmbed.js"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
-function TPPLinksGrid({tokentid}) {  
+function TPPLinksGrid({tokentid, theme}) {  
 
   const [tokenData, setTokenData] = useState();
 
@@ -21,35 +21,14 @@ function TPPLinksGrid({tokentid}) {
   };
 
   return(
-    <div data-theme="light">  {/* 
-      17 Themes are available: 
-      - aqua
-      - black
-      - bumblebee
-      - cupcake
-      - cyberpunk
-      - dark
-      - dracula
-      - fantasy
-      - forest
-      - garden
-      - halloween
-      - light (default)
-      - luxury
-      - pastel
-      - retro
-      - synthwave
-      - valentine  */}
-
       <Masonry
         className="flex h-auto flex-wrap w-auto"
         breakpointCols={breakpointColumnsObj}
       >
         {tokenData && tokenData.links.map(l =>
-        <TPPCardEmbed link={l} />
+        <TPPCardEmbed link={l} theme={theme} />
       )}
       </Masonry>
-    </div>
   );
 }
 
