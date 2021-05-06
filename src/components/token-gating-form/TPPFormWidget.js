@@ -158,9 +158,6 @@ function TPPFormWidget(props, preselect, onClose) {
       onSubmit={onSubmit}
       className="h-full w-full card-body bg-base-100">
         <div className="form-control">
-        <label className="label">
-                <span className={`font-heading font-semibold label-text ${nextStepOpen ? 'hidden' : ''}`}>Enter Link To Gate</span>
-              </label> 
           <div className="relative ">
             <input 
             required
@@ -169,7 +166,7 @@ function TPPFormWidget(props, preselect, onClose) {
             id="form_url"
             name="contentURL"
             type="text" 
-            placeholder="Paste the link you want to token gate" className={`w-full pr-16 input focus:ring-primary focus:ring-4 label-text text-sm font-heading font-semibold ${nextStepOpen ? 'input-gohst' : 'ring-4 ring-primary ring-opacity-20'}`} /> 
+            placeholder="Paste the link you want to token gate" className={`w-full pr-16 input shadow-md focus:ring-primary focus:ring-4 label-text text-sm font-heading font-semibold ${nextStepOpen ? 'input-gohst shadow-none' : 'ring-4 ring-primary ring-opacity-20'}`} /> 
             <span onClick={() => {
               setNextStepOpen(true);}} className={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</span>
           </div>
@@ -199,9 +196,9 @@ function TPPFormWidget(props, preselect, onClose) {
               <div key={idx}>
                 {idx > 0 && // Remove Token Button
                   <button onClick={() => removeAt(idx)}
-                    className="float-right mb-2 mt-2 rounded-md text-gray-900 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    className="float-right mt-3 rounded-md text-gray-900 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     <span className="sr-only">Close panel</span>
-                    <span className="text-lg label-text">X</span>
+                    <span className="text-lg label-text">x</span>
                   </button>
                 }
 
@@ -231,7 +228,7 @@ function TPPFormWidget(props, preselect, onClose) {
           })}
         
           {!nftSelected &&
-          <button type="button" className="mt-4 btn btn-primary hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT})}>
+          <button type="button" className="mt-8 btn float-left btn-primary btn-outline hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT})}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
             </svg>
@@ -240,10 +237,10 @@ function TPPFormWidget(props, preselect, onClose) {
           }
 
           {/* Generate Link and Loading button */}
-          <div className="form-control mt-4">
+          <div className="form-control w-2/3 float-right mt-8">
             <button type="submit" 
             className="btn btn-primary hover:btn-secondary">
-              Create a Gated Link
+              Generate Gated Link
             </button>
             {/* Loading Button
             <button className="btn btn-primary loading">loading</button> 

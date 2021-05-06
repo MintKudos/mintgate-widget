@@ -6,7 +6,27 @@ import { TPPFormWidget} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPFormWidget />
+      <TPPFormWidget theme="default"/>
+      {/* 
+      17 Themes are available: 
+      - aqua
+      - black
+      - bumblebee
+      - cupcake
+      - cyberpunk
+      - dark
+      - dracula
+      - fantasy
+      - forest
+      - garden
+      - halloween
+      - light (default)
+      - luxury
+      - pastel
+      - retro
+      - synthwave
+      - valentine  
+      */}
     </div>
   );
 }

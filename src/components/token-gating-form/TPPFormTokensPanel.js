@@ -149,16 +149,16 @@ async function getEthTokens() {
 
   return(
     <>
-    <div key={userSelectedType} className="mt-4 card">
-          <label className="label">
-              <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
-            </label> 
-          <div className="card bg-base-200 shadow w-full ">
-            <div className="card-body space-y-4">
+    <label className="label">
+      <span className="pt-4 font-heading font-semibold label-text">Set Gated Link Details</span>
+    </label> 
+    <div key={userSelectedType} className="mt-1 card bg-base-200 shadow-md hover:shadow-xl border border-base-300">
+          <div className="w-full ">
+            <div className="card-body -mt-2 space-y-4">
               {/* Select Token Type */}
               <div>
                 <label className="label">
-                  <span className="label-text">Token Type</span>
+                  <span className="font-body label-text">Token Type</span>
                 </label> 
                 <select 
                 id="form_ttype"
@@ -184,7 +184,7 @@ async function getEthTokens() {
               <div className="flex w-full">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Token Address</span>
+                    <span className="font-body label-text">Token Address</span>
                   </label> 
                   <input 
                   value={tokenAddress} 
@@ -199,7 +199,7 @@ async function getEthTokens() {
               <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Token Name</span>
+                    <span className="font-body label-text">Token Name</span>
                   </label> 
                   <input 
                   value={tokenAddress} 
@@ -216,7 +216,7 @@ async function getEthTokens() {
               <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Token ID</span>
+                    <span className="font-body label-text">Token ID</span>
                   </label> 
                   <input type="number" placeholder="721 Token ID" className="font-body font-medium input label-text input-bordered" />
                 </div>
@@ -229,7 +229,7 @@ async function getEthTokens() {
               <div className="flex w-full ">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Token ID</span>
+                    <span className="font-body label-text">Token ID</span>
                   </label> 
                   <input type="number" 
                   name="subid"
@@ -246,7 +246,7 @@ async function getEthTokens() {
               <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Minimum Amount</span>
+                    <span className="font-body label-text">Minimum Amount</span>
                   </label> 
                   <input 
                   type="number" 
