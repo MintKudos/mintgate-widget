@@ -156,7 +156,7 @@ function TPPFormWidget(props, preselect, onClose) {
       id="tppform"
       name="tppcreate"
       onSubmit={onSubmit}
-      className="h-full w-full card-body bg-base-100">
+      className="h-full w-full bg-transparent">
         <div className="form-control">
         <label className="label">
                 <span className={`font-heading font-semibold label-text ${nextStepOpen ? 'hidden' : ''}`}>Enter Link To Gate</span>
