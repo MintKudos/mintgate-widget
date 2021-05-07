@@ -6,7 +6,7 @@ import { TPPFormWidget} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPFormWidget theme="default"/>
+      <TPPFormWidget jwttoken={process.env.JWT || process.env.REACT_APP_JWT} theme="default"/>
       {/* 
       17 Themes are available: 
       - aqua

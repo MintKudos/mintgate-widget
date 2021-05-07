@@ -1,6 +1,6 @@
 {
   "name": "@mintgate/react-mintgate",
-  "version": "0.1.11",
+  "version": "0.1.13",
   "private": false,
   "source": "src/lib.js",
   "main": "dist/lib.js",
@@ -17,7 +17,8 @@
   "resolve": {
     "alias": {
       "react/jsx-dev-runtime": "react/jsx-dev-runtime.js",
-      "react/jsx-runtime": "react/jsx-runtime.js"
+      "react/jsx-runtime": "react/jsx-runtime.js",
+      "react": "react/"
     }
   },
   "dependencies": {
@@ -29,6 +30,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "daisyui": "^0.20.0",
+    "evm-chains": "^0.2.0",
     "react-use": "^17.2.3",
     "rollup": "^2.46.0",
     "rollup-plugin-babel": "^4.4.0",
@@ -38,11 +40,12 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "_prepare": "install-peers",
     "postinstall": "yarn run build",
     "build:css": "tailwind build src/index.css -o src/tailwind.css",
     "start": "craco start",
     "dev": "microbundle watch",
-    "build": "microbundle --globals TPPFormWidget=TPPFormWidget,react=React,react-dom=ReactDOM --jsx React.createElement --jsxImportSource react react/jsxruntime=jsx",
+    "build": "microbundle --globals react/jsx-runtime=jsx,@headlessui/react=React,TPPFormWidget=TPPFormWidget,react=React,react-dom=ReactDOM --jsx React.createElement --jsxImportSource react",
     "build2": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "build_old": "craco build",
     "test": "craco test",
@@ -69,6 +72,7 @@
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.1.0",
     "autoprefixer": "^9",
+    "install-peers-cli": "^2.2.0",
     "microbundle": "^0.13.0",
     "postcss": "^8.2.13",
     "react-scripts": "4.0.3",

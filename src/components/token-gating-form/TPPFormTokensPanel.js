@@ -1,5 +1,9 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import {createFilterOptions} from '@material-ui/lab/Autocomplete';
+import * as chains from 'evm-chains';
+
+const CHAINS = chains.getAllChains().filter(x=>x.rpc.length>0);
+// console.log('CHAINS', CHAINS);
 
 const cache = {};
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || 'https://mgate.io';
@@ -141,6 +145,9 @@ async function getEthTokens() {
                   <option value="3">Ethereum Ropsten</option>
                   <option value="4">Ethereum Rinkeby</option>
                   <option value="5">Ethereum Goerli</option>
+                  {CHAINS.map(x=>{
+                    return <option key={x.chainId} value={''+x.chainId}>{x.name}</option>
+                  })}
                 </select>
               </div>
         </>
