@@ -23,7 +23,8 @@ function TPPFormTokenPanel({
   setUserSelectedType,
   setNetwork,
   network,
-  setSubid
+  setSubid,
+  platformTokenData
 }) {
   const [options, setOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -121,6 +122,43 @@ async function getEthTokens() {
 
     let selectDisplay;
 
+    const preselect = null;
+
+    if (
+      userSelectedType === "1" &&
+      platformTokenData
+    ) {
+      selectDisplay = (
+        <>
+          <div className="w-full mb-4">
+            <label className="block text-sm font-body font-medium text-mg-black">Token</label>
+            <label className="sr-only">Select Token</label>
+            <select
+              onClick={valueIsPlatformToken}
+              defaultValue={preselect || "DEFAULT"}
+              required className="font-body font-medium select select-bordered w-full label-text">
+              {!preselect && <option value="DEFAULT" disabled hidden>Select Token</option>}
+              {platformTokenData ? (
+                platformTokenData
+                  .map((symbol, i) => (
+                    <option
+                      key={symbol.tid}
+                      name={symbol.tid}
+                      value={symbol.tid}
+                      className="font-body text-sm"
+                    >
+                      {symbol.isnft ? `${symbol.name}` : symbol.tid}
+                    </option>
+                  ))
+              ) : (
+                ''
+              )}
+            </select>
+          </div>
+        </>
+      );
+    }
+
     if (userSelectedType !== "1" &&
     userSelectedType !== "-1")
 
@@ -202,7 +240,7 @@ async function getEthTokens() {
             ) : null
             }
 
-            {userSelectedType === "1" ? (
+            {userSelectedType === "1" && !platformTokenData ? (
               <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
