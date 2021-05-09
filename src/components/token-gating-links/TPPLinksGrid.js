@@ -10,9 +10,12 @@ function TPPLinksGrid({tokentid, theme}) {
 
   let _url = new URL(`${TPP}/api/v2/links/token?tokenAddress`);
 
-  fetch('https://mgate.io/api/v2/links/token?tokenAddress=' + tokentid)
-    .then(response => response.text())
-    .then(data => console.log(data));
+  useEffect(async () => {
+    const data = await fetch(_url+ '=' + tokentid).then(x => x.json());
+    
+    console.log('-', data);
+    setTokenData(data);
+  }, []);
 
     console.log('APIv2:', tokentid);
     console.log('POST url', _url.toString());
@@ -20,6 +23,7 @@ function TPPLinksGrid({tokentid, theme}) {
   const breakpointColumnsObj = {
     default: 4,
     1200: 3,
+    800: 2,
     600: 1,
     500: 1
   };

@@ -9,12 +9,14 @@ function TPPLinksList({tokentid}) {
 
   let _url = new URL(`${TPP}/api/v2/links/token?tokenAddress`);
 
-  fetch('https://mgate.io/api/v2/links/token?tokenAddress=' + tokentid)
-    .then(response => response.text())
-    .then(data => console.log(data));
+  useEffect(async () => {
+    const data = await fetch(_url + '=' + tokentid).then(resp => resp.json());
+    setTokenData(data);
+  }, []);
 
-    console.log('APIv2:', tokentid);
+    /*console.log('APIv2:', tokentid);
     console.log('POST url', _url.toString());
+    console.log('data', tokenData);*/
 
   return(
     <div data-theme="light">  {/* 
@@ -37,9 +39,8 @@ function TPPLinksList({tokentid}) {
       - synthwave
       - valentine  */}
       <div className="space-y-4">
-      {tokenData && tokenData.links.map(l =>
-      <TPPCardWideEmbed link={l} />
-      )}
+        {tokenData && tokenData.result.map(link =>
+      <TPPCardWideEmbed link={link} />)}
       </div>
       </div>
   );
