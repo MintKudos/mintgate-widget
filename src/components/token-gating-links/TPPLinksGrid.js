@@ -10,15 +10,17 @@ function TPPLinksGrid({tokentid, theme}) {
 
   let _url = new URL(`${TPP}/api/v2/links/token?tokenAddress`);
 
-  useEffect(async () => {
-    const data = await fetch(_url+ '=' + tokentid).then(x => x.json());
-    
-    console.log('-', data);
+  useEffect(() => {
+    async function fetchlinks() {
+    const data = await fetch(_url + '=' + tokentid).then(resp => resp.json());
     setTokenData(data);
+    }
+    fetchlinks();
   }, []);
 
     console.log('APIv2:', tokentid);
     console.log('POST url', _url.toString());
+    console.log('data', tokenData);
 
   const breakpointColumnsObj = {
     default: 4,
@@ -33,8 +35,8 @@ function TPPLinksGrid({tokentid, theme}) {
         className="flex h-auto flex-wrap w-auto"
         breakpointCols={breakpointColumnsObj}
       >
-        {tokenData && tokenData.links.map(l =>
-        <TPPCardEmbed link={l} theme={theme} />
+        {tokenData && tokenData.result.map(link =>
+        <TPPCardEmbed key={link.id} link={link} theme={theme} />
       )}
       </Masonry>
   );

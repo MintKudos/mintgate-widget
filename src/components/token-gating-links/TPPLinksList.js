@@ -43,7 +43,7 @@ function TPPLinksList({tokentid}) {
       - valentine  */}
       <div className="space-y-4">
         {tokenData && tokenData.result.map(link =>
-      <TPPCardWideEmbed link={link} />)}
+      <TPPCardWideEmbed key={link.id} link={link} />)}
       </div>
       </div>
   );
