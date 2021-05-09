@@ -24,7 +24,7 @@ function TPPCardWideEmbed({link}) {
       - retro
       - synthwave
       - valentine  */}
-      <div className="mx-4 cursor-pointer">
+      <div key="uniqueLink" className="mx-4 cursor-pointer">
       <a href={TPP + '/go/' + link.id} target="_blank">
           <div className=" w-full card bg-base-100 border border-base-300 p-4  shadow-sm hover:shadow-lg transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:transform-none">
             <div id="header" className="flex flex-wrap sm:flex-nowrap">

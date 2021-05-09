@@ -9,9 +9,12 @@ function TPPLinksList({tokentid}) {
 
   let _url = new URL(`${TPP}/api/v2/links/token?tokenAddress`);
 
-  useEffect(async () => {
+  useEffect(() => {
+    async function fetchlinks() {
     const data = await fetch(_url + '=' + tokentid).then(resp => resp.json());
     setTokenData(data);
+    }
+    fetchlinks();
   }, []);
 
     /*console.log('APIv2:', tokentid);
