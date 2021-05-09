@@ -24,7 +24,7 @@ export default App;
 ```
 
 Example project in the repo:
-`/examples/hellowor`
+`/examples/helloworld`
 
 
 ---
