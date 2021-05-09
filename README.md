@@ -11,6 +11,7 @@ How to Get Your Widget Token:
 2. Go to https://www.mintgate.app/token_api or https://www.mintgate.app/developer and click on the Get Token Keys button. 
 3. You will need to copy your Widget Token and pass the value as a key to the `jwttoken` parameter.
 
+
 Widget currently available:
 1. Token gating form (form to set up a token gate on a link)
 2. List/Grid of token gated links on MintGate platform by token
@@ -32,6 +33,24 @@ function App() {
 
 export default App;
 ```
+Optional - You can add any of the following style themes as a value to the theme parameter:
+* aqua
+* black
+* bumblebee
+* cupcake
+* cyberpunk
+* dark
+* dracula
+* fantasy
+* forest
+* garden
+* halloween
+* light (default)
+* luxury
+* pastel
+* retro
+* synthwave
+* valentine
 
 For List of Token Gated Links by Token:
 ```js
