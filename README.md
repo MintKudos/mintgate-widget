@@ -17,6 +17,7 @@ Widget currently available:
 1. Token gating form (form to set up a token gate on a link)
 2. List/Grid of token gated links on MintGate platform by token
 3. List/Grid of token gated links on MintGate platform by user
+4. Token Profile
 
 In React project:
 
@@ -89,7 +90,7 @@ export default App;
 For List of Token Gated Links by User:
 ```js
 import '@mintgate/react-mintgate/dist/lib.css'
-import { TPPLinkList} from '@mintgate/react-mintgate';
+import { TPPLinkListUsers} from '@mintgate/react-mintgate';
 
 function App() {
   return (
@@ -107,14 +108,31 @@ export default App;
 For Grid of Token Gated Links by User:
 ```js
 import '@mintgate/react-mintgate/dist/lib.css'
-import { TPPLinkGrid} from '@mintgate/react-mintgate';
+import { TPPLinkGridUsers} from '@mintgate/react-mintgate';
 
 function App() {
   return (
     <div className="App">
-      <TPPLinksGrid 
+      <TPPLinksGridUsers 
       userid='youruserid'
       tokentid='yourtokenaddress' theme='oneofourthemes'/>
+    </div>
+  );
+}
+
+export default App;
+```
+
+For Token Profile:
+```js
+import '@mintgate/react-mintgate/dist/lib.css'
+import { TokenProfile} from '@mintgate/react-mintgate';
+
+function App() {
+  return (
+    <div className="App">
+      <TokenProfile
+      tid="yourtokentid" />
     </div>
   );
 }
