@@ -12,13 +12,13 @@ function TokenProfile(props) {
 
   useEffect(() => {
     async function fetchlinks() {
-    const data = await fetch(_url + props.tid.toUpperCase()).then(resp => resp.json());
+    const data = await fetch(_url + props.tokenName.toUpperCase()).then(resp => resp.json());
     setTokenInfo(data);
     }
     fetchlinks();
   }, []);
 
-    console.log('APIv2:', props.tid.toUpperCase());
+    console.log('APIv2:', props.tokenName.toUpperCase());
     console.log('POST url', _url.toString());
     console.log('data', tokenInfo);
 
