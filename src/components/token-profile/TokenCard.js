@@ -8,7 +8,7 @@ function TokenCard({info, theme}) {
 		const dateObj = new Date(timestamp);
 		const formattedDate = dateObj.toLocaleString("en-US", { timeZoneName: "short" });
 		return formattedDate;
-	}
+  }
 
   return(
     <div data-theme={theme}>  {/* 
@@ -34,13 +34,13 @@ function TokenCard({info, theme}) {
         <figure>
           <img src={info.img} 
           onError={e => e.target.src = info.photo}
-          alt="Token Image" className="object-cover w-full max-h-64" />
+          alt="Token Image" className="object-cover md:object-contain mx-auto" />
         </figure> 
         <div className="card-body">
           <h2 className="card-title text-base-content text-md text-left font-heading font-semibold">{info.tid}</h2> 
-          <p className="font-body text-base-content text-xs text-left">Description: {info.name}</p> 
-          <p className="font-body text-base-content text-xs text-left"> Created by @{info.twittername}</p> 
-          <p className="font-body text-base-content text-xs text-left">Created: {convertTime(info.created)}</p> 
+          <p className="font-body text-base-content text-md text-left mb-2">Description: {info.name}</p> 
+          <p className="font-body text-base-content text-sm text-left"> Created by @{info.twittername}</p> 
+          <p className="font-body text-base-content text-sm text-left">Created: {convertTime(info.created)}</p> 
         </div>
       </div> 
 </div>
