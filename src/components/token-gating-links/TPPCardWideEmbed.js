@@ -2,10 +2,10 @@ import React from "react";
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
-function TPPCardWideEmbed({link}) {  
+function TPPCardWideEmbed({link, theme}) {  
 
   return(
-    <div data-theme="light">  {/* 
+    <div data-theme={theme}>  {/* 
       17 Themes are available: 
       - aqua
       - black

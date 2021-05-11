@@ -25,7 +25,7 @@ import { TPPFormWidget} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPFormWidget jwttoken='yourwidgettoken' theme='oneofourthemes'/>
+      <TPPFormWidget theme='oneofourthemes'/>
     </div>
   );
 }
@@ -41,7 +41,7 @@ import { TPPLinkList} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksList tokentid='yourtokenaddress' jwttoken='yourwidgettoken' theme='oneofourthemes'/>
+      <TPPLinksList tokentid='yourtokenaddress' theme='oneofourthemes'/>
     </div>
   );
 }
@@ -57,7 +57,7 @@ import { TPPLinkGrid} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksGrid tokentid='yourtokenaddress' jwttoken='yourwidgettoken' theme='oneofourthemes'/>
+      <TPPLinksGrid tokentid='yourtokenaddress' theme='oneofourthemes'/>
     </div>
   );
 }

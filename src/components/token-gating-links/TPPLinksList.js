@@ -3,7 +3,7 @@ import TPPCardWideEmbed from "./TPPCardWideEmbed"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
-function TPPLinksList({tokentid}) {  
+function TPPLinksList(props) {  
 
   const [tokenData, setTokenData] = useState();
 
@@ -11,15 +11,15 @@ function TPPLinksList({tokentid}) {
 
   useEffect(() => {
     async function fetchlinks() {
-    const data = await fetch(_url + '=' + tokentid).then(resp => resp.json());
+    const data = await fetch(_url + '=' + props.tokentid).then(resp => resp.json());
     setTokenData(data);
     }
     fetchlinks();
   }, []);
 
-    /*console.log('APIv2:', tokentid);
+    console.log('APIv2:', props.tokentid);
     console.log('POST url', _url.toString());
-    console.log('data', tokenData);*/
+    console.log('data', tokenData);
 
   return(
     <div data-theme="light">  {/* 
