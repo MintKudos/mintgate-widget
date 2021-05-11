@@ -37,9 +37,8 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^4.0.0",
-    "web-vitals": "^1.0.1"
-    "evm-chains": "^0.2.0",
-
+    "web-vitals": "^1.0.1",
+    "evm-chains": "^0.2.0"
   },
   "scripts": {
     "_prepare": "install-peers",
