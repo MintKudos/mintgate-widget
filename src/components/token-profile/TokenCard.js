@@ -30,11 +30,11 @@ function TokenCard({info, theme}) {
       - retro
       - synthwave
       - valentine  */}
-      <div className="w-full mx-2 my-4 card border border-base-300 bg-base-100">
+      <div className="w-full lg:w-2/3 mx-2 my-4 card border border-base-300 bg-base-100">
         <figure>
           <img src={info.img} 
           onError={e => e.target.src = info.photo}
-          alt="Token Image" className="object-cover md:object-contain mx-auto" />
+          alt="Token Image" className="object-cover md:object-contain mx-auto max-h-32 md:max-h-64" />
         </figure> 
         <div className="card-body">
           <h2 className="card-title text-base-content text-md text-left font-heading font-semibold">{info.tid}</h2> 
