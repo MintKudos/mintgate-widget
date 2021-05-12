@@ -4,15 +4,15 @@ import TPPCardEmbed from "../link-cards/TPPCardEmbed.js"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
-function TPPLinksGrid(props) {  
+function TPPLinksGridUser(props) {  
 
   const [tokenData, setTokenData] = useState();
 
-  let _url = new URL(`${TPP}/api/v2/links/token?tokenAddress`);
+  let _url = new URL(`${TPP}/api/v2/links/user?uid`);
 
   useEffect(() => {
     async function fetchlinks() {
-    const data = await fetch(_url + '=' + props.tokentid).then(resp => resp.json());
+    const data = await fetch(_url + '=' + props.userid + '&jwt=' + props.jwttoken).then(resp => resp.json());
     setTokenData(data);
     }
     fetchlinks();
@@ -42,4 +42,4 @@ function TPPLinksGrid(props) {
   );
 }
 
-export default TPPLinksGrid
+export default TPPLinksGridUser

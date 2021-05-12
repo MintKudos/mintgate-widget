@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import {createFilterOptions} from '@material-ui/lab/Autocomplete';
 
 const cache = {};
@@ -17,6 +17,7 @@ function TPPFormTokenPanel({
   setTokenAddress, tokenAddress,
   userSelectedType,
   setUserSelectedType,
+  platformTokenData,
   setNetwork,
   network,
   setSubid
@@ -117,6 +118,43 @@ async function getEthTokens() {
 
     let selectDisplay;
 
+    const preselect = null;
+
+    if (
+      userSelectedType === "1" &&
+      platformTokenData
+    ) {
+      selectDisplay = (
+        <>
+          <div className="w-full">
+            <label className="block text-sm font-body font-medium text-mg-black label-text text-right">Token</label>
+            <label className="sr-only">Select Token</label>
+            <select
+              onClick={valueIsPlatformToken}
+              defaultValue={preselect || "DEFAULT"}
+              required className="font-body font-medium select select-bordered w-full label-text">
+              {!preselect && <option value="DEFAULT" disabled hidden>Select Token</option>}
+              {platformTokenData ? (
+                platformTokenData
+                  .map((symbol, i) => (
+                    <option
+                      key={symbol.tid}
+                      name={symbol.tid}
+                      value={symbol.tid}
+                      className="font-body text-sm"
+                    >
+                      {symbol.isnft ? `${symbol.name}` : symbol.tid}
+                    </option>
+                  ))
+              ) : (
+                ''
+              )}
+            </select>
+          </div>
+        </>
+      );
+    }
+
     if (userSelectedType !== "1" &&
     userSelectedType !== "-1")
 
@@ -149,11 +187,12 @@ async function getEthTokens() {
 
   return(
     <>
+
     <div key={userSelectedType} className="mt-4 card">
           <label className="label">
               <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
             </label> 
-          <div className="card bg-base-200 shadow-lg w-full ">
+          <div className="card bg-base-200 border border-base-300 shadow-md hover:shadow w-full">
             <div className="card-body space-y-4">
               {/* Select Token Type */}
               <div>

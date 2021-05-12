@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import TPPFormTokenPanel from "./TPPFormTokensPanel";
 import { useList } from 'react-use';
@@ -152,11 +152,11 @@ function TPPFormWidget(props, preselect, onClose) {
       - retro
       - synthwave
       - valentine  */}
-      <form 
-      id="tppform"
-      name="tppcreate"
-      onSubmit={onSubmit}
-      className="h-full w-full bg-transparent">
+      <form
+        id="tppform"
+        name="tppcreate"
+        onSubmit={onSubmit}
+        className="h-full w-full card-body bg-transparent">
         <div className="form-control">
         <label className="label">
                 <span className={`font-heading font-semibold label-text ${nextStepOpen ? 'hidden' : ''}`}>Enter Link To Gate</span>
@@ -196,7 +196,7 @@ function TPPFormWidget(props, preselect, onClose) {
             </div>
             {list.map((field, idx) => {
             return (
-              <div key={idx}>
+              <div key={idx} className="mb-20">
                 {idx > 0 && // Remove Token Button
                   <button onClick={() => removeAt(idx)}
                     className="float-right mb-2 mt-2 rounded-md text-gray-900 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -225,30 +225,25 @@ function TPPFormWidget(props, preselect, onClose) {
 
                   setSubid={(x) => updateAt(idx, { ...field, subid: x })}
                 />
-
+            
               </div>
             );
           })}
-        
           {!nftSelected &&
-          <button type="button" className="mt-4 btn btn-primary hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT})}>
+          <button type="button" className="mt-8 btn float-left btn-primary btn-outline hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT})}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
             </svg>
-            Add Token
-          </button> 
+          Add token
+          </button>
           }
-
           {/* Generate Link and Loading button */}
-          <div className="form-control mt-4">
+          <div className="form-control w-2/3 float-right mt-8">
             <button type="submit" 
             className="btn btn-primary hover:btn-secondary">
-              Create a Gated Link
+              Generate Gated Link
             </button>
-            {/* Loading Button
-            <button className="btn btn-primary loading">loading</button> 
-            */}
-          </div>
+            </div>
         </Transition>
       </form>
     </div>

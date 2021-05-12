@@ -1,3 +1,5 @@
+import React from "react";
+
 function tpplink(props) {
 
   return (
@@ -7,7 +9,7 @@ function tpplink(props) {
         <label className="label">
                 <span className="font-heading font-semibold label-text">Your Link is Ready</span>
               </label> 
-              <div class="relative">
+              <div className="relative">
           <input required
                   value={props.link}
                   id="link"
