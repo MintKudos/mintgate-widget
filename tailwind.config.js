@@ -40,6 +40,18 @@ module.exports = {
     }),
     extend: {
       colors: require('daisyui/colors'),
+      backgroundImage: {
+        'top-blur': "url('/dfame-bg.svg')",
+        'bubble': "url('/bubblebg.svg')",
+        'cta': "url('/cta-bg.jpg')",
+        'mint': "url('/mintbg.png')",
+        'noise': "url('/noise.png')",
+        'main': "url('/main.png')",
+        'alternative': "url('/alternative.png')",
+        'card1': "url('/card-1.svg')",
+        'card2': "url('/card-2.svg')",
+        'card3': "url('/card-3.svg')",
+      },
       animation: {
         pulse: "pulse 4s infinite",
       },
@@ -47,6 +59,7 @@ module.exports = {
         body: ['Karla', 'sans-serif'],
         'body': ['Karla', 'sans-serif'],
         'heading': ['Montserrat', 'sans-serif'],
+        'alternative': ['Shippori Mincho B1', 'serif']
       },
       borderRadius: {
         xl: "1em",

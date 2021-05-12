@@ -6,8 +6,7 @@ import {TPPFormWidget} from './lib';
 
 const App = () => (
     <div>
-        <TPPFormWidget jwttoken={process.env.REACT_APP_JWT || process.env.JWT} 
-            theme=""></TPPFormWidget>
+        <TPPFormWidget jwttoken={process.env.REACT_APP_JWT} theme=""></TPPFormWidget>
     </div>
 );
 
