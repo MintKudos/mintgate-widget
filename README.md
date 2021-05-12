@@ -9,12 +9,14 @@ yarn add @mintgate/react-mintgate
 How to Get Your Widget Token:
 1. Log into the MintGate Site: https://www.mintgate.app/login
 2. Go to https://www.mintgate.app/token_api or https://www.mintgate.app/developer and click on the Get Token Keys button. 
-3. You will need to copy your Widget Token and pass the value as a key to the `jwttoken` parameter.
+3. You will need to copy your Widget Token and pass the value as a key to the `jwttoken` parameter (for Token gating form and List/Grid of token gated links by token).
+4. You will also need your userID (for List/Grid of token gated links by user only).
 
 
 Widget currently available:
 1. Token gating form (form to set up a token gate on a link)
 2. List/Grid of token gated links on MintGate platform by token
+3. List/Grid of token gated links on MintGate platform by user
 
 In React project:
 
@@ -77,6 +79,42 @@ function App() {
   return (
     <div className="App">
       <TPPLinksGrid tokentid='yourtokenaddress' theme='oneofourthemes'/>
+    </div>
+  );
+}
+
+export default App;
+```
+
+For List of Token Gated Links by User:
+```js
+import '@mintgate/react-mintgate/dist/lib.css'
+import { TPPLinkList} from '@mintgate/react-mintgate';
+
+function App() {
+  return (
+    <div className="App">
+      <TPPLinksListUsers 
+      userid='youruserid'
+      jwttoken='yourjwttoken' theme='oneofourthemes'/>
+    </div>
+  );
+}
+
+export default App;
+```
+
+For Grid of Token Gated Links by User:
+```js
+import '@mintgate/react-mintgate/dist/lib.css'
+import { TPPLinkGrid} from '@mintgate/react-mintgate';
+
+function App() {
+  return (
+    <div className="App">
+      <TPPLinksGrid 
+      userid='youruserid'
+      tokentid='yourtokenaddress' theme='oneofourthemes'/>
     </div>
   );
 }

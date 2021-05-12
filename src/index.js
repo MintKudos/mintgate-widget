@@ -5,11 +5,13 @@ import "tailwindcss/tailwind.css"
 import {TPPFormWidget} from './lib';
 import TPPLinksList from './components/token-gating-links/TPPLinksList'
 import TPPLinksGrid from './components/token-gating-links/TPPLinksGrid'
+import TPPLinksListUser from './components/token-gating-user/TPPLinksList'
+import TPPLinksGridUser from './components/token-gating-user/TPPLinksGrid'
 
 const App = () => (
     <div>
-        <TPPLinksList tokentid="0x6b175474e89094c44da98b954eedeac495271d0f"></TPPLinksList>
-        <TPPLinksGrid tokentid="0x6b175474e89094c44da98b954eedeac495271d0f" theme="aqua"></TPPLinksGrid>
+        <TPPLinksListUser jwttoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxNzciLCJzY29wZXMiOlsid2lkZ2V0Il0sIndpZGdldCI6dHJ1ZSwiaWF0IjoxNjIwNTA0NzYwfQ.DNh6Y8Gbp_ymaRCfMN7Ze9O10Ycq942V4N8KmDPY0sQ" userid="177" theme="aqua"></TPPLinksListUser>
+        <TPPLinksGridUser jwttoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxNzciLCJzY29wZXMiOlsid2lkZ2V0Il0sIndpZGdldCI6dHJ1ZSwiaWF0IjoxNjIwNTA0NzYwfQ.DNh6Y8Gbp_ymaRCfMN7Ze9O10Ycq942V4N8KmDPY0sQ" userid="177" theme="aqua"></TPPLinksGridUser>
     </div>
 );
 
