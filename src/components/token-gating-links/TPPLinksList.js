@@ -13,7 +13,7 @@ function TPPLinksList({tokentid, theme}) {
   }, []);
 
   return(
-      <div className="space-y-4">
+      <div className="w-full space-y-4">
       {tokenData && tokenData.links.map(l =>
       <TPPCardWideEmbed link={l} theme={theme}/>
       )}
