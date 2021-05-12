@@ -130,7 +130,7 @@ async function getEthTokens() {
     ) {
       selectDisplay = (
         <>
-          <div className="w-full mb-4">
+          <div className="w-full mb-12">
             <label className="block text-sm font-body font-medium text-mg-black label-text text-right">Token</label>
             <label className="sr-only">Select Token</label>
             <select

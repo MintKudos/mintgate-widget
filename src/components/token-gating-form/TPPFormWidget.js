@@ -154,7 +154,7 @@ function TPPFormWidget({ tokenType, tokenAddress, subid, network, jwttoken, them
         id="tppform"
         name="tppcreate"
         onSubmit={onSubmit}
-        className="h-full w-full card-body bg-base-100">
+        className="h-full w-full card-body bg-transparent">
         <div className="form-control">
           <div className="relative ">
             <input
@@ -193,7 +193,7 @@ function TPPFormWidget({ tokenType, tokenAddress, subid, network, jwttoken, them
 
           {list.map((field, idx) => {
             return (
-              <div key={idx}>
+              <div key={idx} className="mb-20">
                 {idx > 0 && // Remove Token Button
                   <button onClick={() => removeAt(idx)}
                     className="float-right mt-3 rounded-md text-gray-900 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -223,15 +223,13 @@ function TPPFormWidget({ tokenType, tokenAddress, subid, network, jwttoken, them
 
                   setSubid={(x) => updateAt(idx, { ...field, subid: x })}
                 />
-
+            
               </div>
             );
           })}
-
-          <div className="pt-16 flex space-x-4 lg:flex-row">
-            {!nftSelected &&
-
-              <button type="button" className="w-1/3 btn btn btn-outline btn-primary hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT })}>
+          <div className="w-full flex flex-row justify-between mt-12 space-x-4">
+          {!nftSelected &&
+              <button type="button" className="max-w-96 btn btn-primary border-2 text-primary bg-transparent hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT })}>
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
                       </svg>
@@ -240,11 +238,10 @@ function TPPFormWidget({ tokenType, tokenAddress, subid, network, jwttoken, them
             }
             {/* Generate Link button*/}
               <button type="submit"
-                className="w-2/3 btn btn-primary hover:btn-secondary">
+                className="btn btn-primary hover:btn-secondary">
                 Generate Gated Link
             </button>
             </div>
-            
         </Transition>
       </form>
     </div>
