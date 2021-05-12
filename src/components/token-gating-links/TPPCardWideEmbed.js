@@ -37,7 +37,10 @@ function TPPCardWideEmbed({link, theme}) {
           </div>
         </a>
       </div>
+
       </div>
+
+
   );
 }
 

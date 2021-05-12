@@ -194,6 +194,7 @@ async function getEthTokens() {
 
   return(
     <>
+
     <div key={userSelectedType} className="mt-4 card">
           <label className="label">
               <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
