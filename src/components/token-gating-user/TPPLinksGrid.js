@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Masonry from 'react-masonry-css';
-import TPPCardEmbed from "./TPPCardEmbed.js"
+import TPPCardEmbed from "../link-cards/TPPCardEmbed.js"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 

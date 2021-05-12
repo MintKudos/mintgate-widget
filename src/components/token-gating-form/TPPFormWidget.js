@@ -228,27 +228,23 @@ function TPPFormWidget({ tokenType, tokenAddress, subid, network, jwttoken, them
             );
           })}
 
-          <div className="w-full flex flex-col space-x-0 lg:space-x-4 lg:flex-row">
-
+          <div className="pt-16 flex space-x-4 lg:flex-row">
             {!nftSelected &&
-              <div className="flex w-full lg:w-1/3 mt-8">
-                <button type="button" className="w-full btn btn-primary btn-outline hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT })}>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                  </svg>
-            Add Token
-          </button>
-              </div>
-            }
 
+              <button type="button" className="w-1/3 btn btn btn-outline btn-primary hover:btn-secondary" onClick={() => push({ ...TOKEN_DEFAULT })}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                      </svg>
+                Add Token
+              </button>
+            }
             {/* Generate Link button*/}
-            <div className="flex w-full lg:w-2/3 mt-8">
               <button type="submit"
-                className="w-full btn btn-primary hover:btn-secondary">
+                className="w-2/3 btn btn-primary hover:btn-secondary">
                 Generate Gated Link
             </button>
             </div>
-          </div>
+            
         </Transition>
       </form>
     </div>

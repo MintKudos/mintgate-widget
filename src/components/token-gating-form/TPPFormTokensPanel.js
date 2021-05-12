@@ -131,7 +131,7 @@ async function getEthTokens() {
       selectDisplay = (
         <>
           <div className="w-full mb-4">
-            <label className="block text-sm font-body font-medium text-mg-black">Token</label>
+            <label className="block text-sm font-body font-medium text-mg-black label-text text-right">Token</label>
             <label className="sr-only">Select Token</label>
             <select
               onClick={valueIsPlatformToken}
@@ -199,7 +199,7 @@ async function getEthTokens() {
           <label className="label">
               <span className="font-heading font-semibold label-text">Set Gated Link Details</span>
             </label> 
-          <div className="card bg-base-200 shadow-lg w-full ">
+          <div className="card bg-base-200 border border-base-300 shadow-lg hover:shadow w-full ">
             <div className="card-body space-y-4">
               {/* Select Token Type */}
               <div>
