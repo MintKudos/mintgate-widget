@@ -23,11 +23,11 @@ function TPPLinksGridUser(props) {
     console.log('data', tokenData);
 
   const breakpointColumnsObj = {
-    default: 4,
-    1200: 3,
-    800: 2,
-    600: 1,
-    500: 1
+    default: props.base,
+    1200: props.lg,
+    800: props.md,
+    600: props.sm,
+    500: props.xs
   };
 
   return(

@@ -71,6 +71,12 @@ export default App;
 ```
 
 For Grid of Token Gated Links by Token:
+add brakign points for the gird based on screensize:
+- base = default
+- lg = 1200px
+- md = 800px
+- sm = 600px
+- xs = 500px
 ```js
 import '@mintgate/react-mintgate/dist/lib.css'
 import { TPPLinkGrid} from '@mintgate/react-mintgate';
@@ -78,7 +84,7 @@ import { TPPLinkGrid} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksGrid tokentid='yourtokenaddress' theme='oneofourthemes'/>
+      <TPPLinksGrid base="4" lg="3" md="2" sm="1" xs="1" tokentid='yourtokenaddress' theme='oneofourthemes'/>
     </div>
   );
 }
@@ -105,6 +111,12 @@ export default App;
 ```
 
 For Grid of Token Gated Links by User:
+add brakign points for the gird based on screensize:
+- base = default
+- lg = 1200px
+- md = 800px
+- sm = 600px
+- xs = 500px
 ```js
 import '@mintgate/react-mintgate/dist/lib.css'
 import { TPPLinkGrid} from '@mintgate/react-mintgate';
@@ -114,6 +126,7 @@ function App() {
     <div className="App">
       <TPPLinksGrid 
       userid='youruserid'
+      base="4" lg="3" md="2" sm="1" xs="1"
       tokentid='yourtokenaddress' theme='oneofourthemes'/>
     </div>
   );
