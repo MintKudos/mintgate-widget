@@ -1,5 +1,9 @@
 import {useState, useEffect} from "react";
 import {createFilterOptions} from '@material-ui/lab/Autocomplete';
+import * as chains from 'evm-chains';
+
+const CHAINS = chains.getAllChains().filter(x=>x.rpc.length>0);
+// console.log('CHAINS', CHAINS);
 
 const cache = {};
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || 'https://mgate.io';
@@ -19,7 +23,8 @@ function TPPFormTokenPanel({
   setUserSelectedType,
   setNetwork,
   network,
-  setSubid
+  setSubid,
+  platformTokenData
 }) {
   const [options, setOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -117,6 +122,43 @@ async function getEthTokens() {
 
     let selectDisplay;
 
+    const preselect = null;
+
+    if (
+      userSelectedType === "1" &&
+      platformTokenData
+    ) {
+      selectDisplay = (
+        <>
+          <div className="w-full mb-4">
+            <label className="block text-sm font-body font-medium text-mg-black">Token</label>
+            <label className="sr-only">Select Token</label>
+            <select
+              onClick={valueIsPlatformToken}
+              defaultValue={preselect || "DEFAULT"}
+              required className="font-body font-medium select select-bordered w-full label-text">
+              {!preselect && <option value="DEFAULT" disabled hidden>Select Token</option>}
+              {platformTokenData ? (
+                platformTokenData
+                  .map((symbol, i) => (
+                    <option
+                      key={symbol.tid}
+                      name={symbol.tid}
+                      value={symbol.tid}
+                      className="font-body text-sm"
+                    >
+                      {symbol.isnft ? `${symbol.name}` : symbol.tid}
+                    </option>
+                  ))
+              ) : (
+                ''
+              )}
+            </select>
+          </div>
+        </>
+      );
+    }
+
     if (userSelectedType !== "1" &&
     userSelectedType !== "-1")
 
@@ -141,6 +183,9 @@ async function getEthTokens() {
                   <option value="3">Ethereum Ropsten</option>
                   <option value="4">Ethereum Rinkeby</option>
                   <option value="5">Ethereum Goerli</option>
+                  {CHAINS.map(x=>{
+                    return <option key={x.chainId} value={''+x.chainId}>{x.name}</option>
+                  })}
                 </select>
               </div>
         </>
@@ -158,7 +203,7 @@ async function getEthTokens() {
               {/* Select Token Type */}
               <div>
                 <label className="label">
-                  <span className="label-text">Token Type</span>
+                  <span className="font-body label-text">Token Type</span>
                 </label> 
                 <select 
                 id="form_ttype"
@@ -184,7 +229,7 @@ async function getEthTokens() {
               <div className="flex w-full">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Token Address</span>
+                    <span className="font-body label-text">Token Address</span>
                   </label> 
                   <input 
                   value={tokenAddress} 
@@ -195,11 +240,11 @@ async function getEthTokens() {
             ) : null
             }
 
-            {userSelectedType === "1" ? (
+            {userSelectedType === "1" && !platformTokenData ? (
               <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Token Name</span>
+                    <span className="font-body label-text">Token Name</span>
                   </label> 
                   <input 
                   value={tokenAddress} 
@@ -216,7 +261,7 @@ async function getEthTokens() {
               <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Token ID</span>
+                    <span className="font-body label-text">Token ID</span>
                   </label> 
                   <input type="number" placeholder="721 Token ID" className="font-body font-medium input label-text input-bordered" />
                 </div>
@@ -229,7 +274,7 @@ async function getEthTokens() {
               <div className="flex w-full ">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Token ID</span>
+                    <span className="font-body label-text">Token ID</span>
                   </label> 
                   <input type="number" 
                   name="subid"
@@ -246,7 +291,7 @@ async function getEthTokens() {
               <div className="flex  w-full ">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Minimum Amount</span>
+                    <span className="font-body label-text">Minimum Amount</span>
                   </label> 
                   <input 
                   type="number" 
