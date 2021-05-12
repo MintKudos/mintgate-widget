@@ -13,7 +13,7 @@ function App() {
       <h1> Token Gated Form</h1>
       <TPPFormWidget 
         gateTokens={tokens}
-        jwttoken={process.env.JWT || process.env.REACT_APP_JWT} theme="dark"/>
+        jwttoken={process.env.JWT || process.env.REACT_APP_JWT} theme="light"/>
       <br />
       <h1> List of token Gated Links by Token - Example with $CREATOR</h1>
       <br />
