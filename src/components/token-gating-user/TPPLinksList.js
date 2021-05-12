@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import TPPCardWideEmbed from "./TPPCardWideEmbed"
+import TPPCardWideEmbed from "../link-cards/TPPCardWideEmbed"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
