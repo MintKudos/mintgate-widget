@@ -4,7 +4,7 @@ import TPPCardEmbed from "./TPPCardEmbed.js"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
-function TPPLinksGrid({tokentid, theme, base, lg, md, sm}) {  
+function TPPLinksGrid({tokentid, theme}) {  
 
   const [tokenData, setTokenData] = useState();
 
@@ -14,23 +14,21 @@ function TPPLinksGrid({tokentid, theme, base, lg, md, sm}) {
   }, []);
 
   const breakpointColumnsObj = {
-    default: base,
-    1200: lg,
-    600: md,
-    500: sm
+    default: 4,
+    1200: 3,
+    600: 1,
+    500: 1
   };
 
   return(
-    <div className="w-full">
       <Masonry
         className="flex h-auto flex-wrap w-auto"
         breakpointCols={breakpointColumnsObj}
       >
         {tokenData && tokenData.links.map(l =>
-        <TPPCardEmbed link={l} theme={theme}/>
+        <TPPCardEmbed link={l} theme={theme} />
       )}
       </Masonry>
-      </div>
   );
 }
 
