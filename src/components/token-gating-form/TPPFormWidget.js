@@ -150,11 +150,11 @@ function TPPFormWidget({ tokenType, tokenAddress, subid, network, jwttoken, them
       - retro
       - synthwave
       - valentine  */}
-      <form
-        id="tppform"
-        name="tppcreate"
-        onSubmit={onSubmit}
-        className="h-full w-full card-body bg-base-100">
+      <form 
+      id="tppform"
+      name="tppcreate"
+      onSubmit={onSubmit}
+      className="h-full w-full bg-transparent">
         <div className="form-control">
           <div className="relative ">
             <input

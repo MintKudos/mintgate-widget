@@ -31,6 +31,7 @@ function TPPLinksGrid(props) {
   };
 
   return(
+    <div className="w-full">
       <Masonry
         className="flex h-auto flex-wrap w-auto"
         breakpointCols={breakpointColumnsObj}
@@ -39,6 +40,7 @@ function TPPLinksGrid(props) {
         <TPPCardEmbed key={link.id} link={link} theme={props.theme} />
       )}
       </Masonry>
+      </div>
   );
 }
 
