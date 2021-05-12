@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import '@mintgate/react-mintgate/dist/lib.css'
 import { TPPFormWidget} from '@mintgate/react-mintgate';
@@ -6,7 +5,7 @@ import { TPPLinksList} from '@mintgate/react-mintgate';
 import { TPPLinksGrid} from '@mintgate/react-mintgate';
 import { TPPLinksListUsers} from '@mintgate/react-mintgate';
 import { TPPLinksGridUsers} from '@mintgate/react-mintgate';
-import tokens from './tokens.json';
+import tokens from './token.json';
 function App() {
   return (
     <div className="App">

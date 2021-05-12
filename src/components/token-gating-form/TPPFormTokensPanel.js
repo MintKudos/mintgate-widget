@@ -17,6 +17,7 @@ function TPPFormTokenPanel({
   setTokenAddress, tokenAddress,
   userSelectedType,
   setUserSelectedType,
+  platformTokenData,
   setNetwork,
   network,
   setSubid
@@ -125,7 +126,7 @@ async function getEthTokens() {
     ) {
       selectDisplay = (
         <>
-          <div className="w-full mb-12">
+          <div className="w-full">
             <label className="block text-sm font-body font-medium text-mg-black label-text text-right">Token</label>
             <label className="sr-only">Select Token</label>
             <select
