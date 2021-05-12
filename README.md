@@ -35,24 +35,6 @@ function App() {
 
 export default App;
 ```
-Optional - You can add any of the following style themes as a value to the theme parameter:
-* aqua
-* black
-* bumblebee
-* cupcake
-* cyberpunk
-* dark
-* dracula
-* fantasy
-* forest
-* garden
-* halloween
-* light (default)
-* luxury
-* pastel
-* retro
-* synthwave
-* valentine
 
 For List of Token Gated Links by Token:
 ```js
@@ -155,7 +137,8 @@ Optional - You can add any of the following style themes as a value to the theme
 * valentine
 
 Example project in the repo:
-`/examples/helloworld`
+`/examples/hellowor`
+
 
 ---
 Internal: to build a new NPM version
