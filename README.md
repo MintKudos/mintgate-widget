@@ -130,7 +130,7 @@ function App() {
   return (
     <div className="App">
       <TokenProfile
-      tokeName="yourtokentid"  body={true/false} />
+      tokeName="yourtokentid" body={true/false} />
     </div>
   );
 }
