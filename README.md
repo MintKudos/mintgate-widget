@@ -45,7 +45,7 @@ import { TPPLinkList} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksList tokentid='yourtokenaddress' theme='oneofourthemes'/>
+      <TPPLinkList tokentid='yourtokenaddress' theme='oneofourthemes'/>
     </div>
   );
 }
@@ -67,7 +67,7 @@ import { TPPLinkGrid} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksGrid base="4" lg="3" md="2" sm="1" xs="1" tokentid='yourtokenaddress' theme='oneofourthemes'/>
+      <TPPLinkGrid base="4" lg="3" md="2" sm="1" xs="1" tokentid='yourtokenaddress' theme='oneofourthemes'/>
     </div>
   );
 }
@@ -83,7 +83,7 @@ import { TPPLinkListUsers} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksListUsers 
+      <TPPLinkListUsers 
       userid='youruserid'
       jwttoken='yourjwttoken' theme='oneofourthemes'/>
     </div>
@@ -107,7 +107,7 @@ import { TPPLinkGridUsers} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksGridUsers 
+      <TPPLinkGridUsers 
       userid='youruserid'
       base="4" lg="3" md="2" sm="1" xs="1"
       tokentid='yourtokenaddress' theme='oneofourthemes'/>
@@ -119,6 +119,9 @@ export default App;
 ```
 
 For Token Profile:
+
+You have to add a token id (tid) and can set the body to true or false. 
+False will hide the token name and descirption, the token will take full coverage of the card.
 ```js
 import '@mintgate/react-mintgate/dist/lib.css'
 import { TokenProfile} from '@mintgate/react-mintgate';
@@ -127,7 +130,7 @@ function App() {
   return (
     <div className="App">
       <TokenProfile
-      tid="yourtokentid" />
+      tokeName="yourtokentid"  body={true/false} />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { TPPLinksList} from '@mintgate/react-mintgate';
 import { TPPLinksGrid} from '@mintgate/react-mintgate';
 import { TPPLinksListUsers} from '@mintgate/react-mintgate';
 import { TPPLinksGridUsers} from '@mintgate/react-mintgate';
+import { TokenProfile} from '@mintgate/react-mintgate';
 import tokens from './token.json';
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
       <h1> Grid of token Gated Links by a User - Example with MintGate </h1>
       <TPPLinksGridUsers jwttoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxNzciLCJzY29wZXMiOlsid2lkZ2V0Il0sIndpZGdldCI6dHJ1ZSwiaWF0IjoxNjIwNTA0NzYwfQ.DNh6Y8Gbp_ymaRCfMN7Ze9O10Ycq942V4N8KmDPY0sQ" 
       base="4" lg="3" md="2" sm="1" xs="1" userid="177" theme="light" />
+      <TokenProfile
+      tokenName="4ULFAJNEQ9SM" body={false}/>
+      <TokenProfile
+      tokenName="4ULFAJNEQ9SM" body={true}/>
       {/* 
       17 Themes are available: 
       - aqua

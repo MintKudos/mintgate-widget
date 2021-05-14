@@ -27,7 +27,7 @@ function TokenProfile(props) {
         className="flex h-auto flex-wrap w-auto"
       >
         {tokenInfo && tokenInfo.map(info =>
-        <TokenCard key={info.name} info={info} theme={props.theme} />
+        <TokenCard key={info.name} info={info} theme={props.theme} body={props.body} />
       )}
       </Masonry>
   );
