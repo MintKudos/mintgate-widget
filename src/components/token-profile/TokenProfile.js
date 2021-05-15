@@ -11,11 +11,11 @@ function TokenProfile(props) {
   let _url = new URL(`${TPP}/api/v2/tokens/owner/`);
 
   useEffect(() => {
-    async function fetchlinks() {
+    async function fetchinfo() {
     const data = await fetch(_url + props.tokenName.toUpperCase()).then(resp => resp.json());
     setTokenInfo(data);
     }
-    fetchlinks();
+    fetchinfo();
   }, []);
 
     console.log('APIv2:', props.tokenName.toUpperCase());
