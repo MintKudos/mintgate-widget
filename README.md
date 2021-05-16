@@ -21,7 +21,11 @@ Widget currently available:
 
 In React project:
 
-For Token gating form:
+##Form to set up token gated links:
+**Required prop**: 
+* jwttoken (string - your jwt token)
+**Optional prop**:
+* theme (string - one of our 16 themes) 
 ```js
 import '@mintgate/react-mintgate/dist/lib.css'
 import { TPPFormWidget} from '@mintgate/react-mintgate';
@@ -29,7 +33,7 @@ import { TPPFormWidget} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPFormWidget theme='oneofourthemes'/>
+      <TPPFormWidget jwttoken="yourjwttoken" theme='oneofourthemes'/>
     </div>
   );
 }
@@ -37,7 +41,11 @@ function App() {
 export default App;
 ```
 
-For List of Token Gated Links by Token:
+##List of Token Gated Links by Token:
+**Required prop**: 
+* tokentid (string - token address)
+**Optional prop**:
+* theme (string - one of our 16 themes) 
 ```js
 import '@mintgate/react-mintgate/dist/lib.css'
 import { TPPLinkList} from '@mintgate/react-mintgate';
@@ -45,7 +53,7 @@ import { TPPLinkList} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksList tokentid='yourtokenaddress' theme='oneofourthemes'/>
+      <TPPLinkList tokentid='yourtokenaddress' theme='oneofourthemes'/>
     </div>
   );
 }
@@ -53,8 +61,12 @@ function App() {
 export default App;
 ```
 
-For Grid of Token Gated Links by Token:
-add brakign points for the gird based on screensize:
+##Grid of Token Gated Links by Token:
+**Required prop**: 
+* tokentid (string - token address)
+**Optional prop**:
+* theme (string - one of our 16 themes) 
+* breakpoints for number of columns
 - base = default
 - lg = 1200px
 - md = 800px
@@ -67,7 +79,7 @@ import { TPPLinkGrid} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksGrid base="4" lg="3" md="2" sm="1" xs="1" tokentid='yourtokenaddress' theme='oneofourthemes'/>
+      <TPPLinkGrid base="4" lg="3" md="2" sm="1" xs="1" tokentid='yourtokenaddress' theme='oneofourthemes'/>
     </div>
   );
 }
@@ -75,7 +87,12 @@ function App() {
 export default App;
 ```
 
-For List of Token Gated Links by User:
+##List of Token Gated Links by User:
+**Required prop**: 
+* userid (number - id of user)
+* jwttoken (string - your jwt token)
+**Optional prop**:
+* theme (string - one of our 16 themes) 
 ```js
 import '@mintgate/react-mintgate/dist/lib.css'
 import { TPPLinkListUsers} from '@mintgate/react-mintgate';
@@ -83,7 +100,7 @@ import { TPPLinkListUsers} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksListUsers 
+      <TPPLinkListUsers 
       userid='youruserid'
       jwttoken='yourjwttoken' theme='oneofourthemes'/>
     </div>
@@ -93,8 +110,13 @@ function App() {
 export default App;
 ```
 
-For Grid of Token Gated Links by User:
-add brakign points for the gird based on screensize:
+##Grid of Token Gated Links by User:
+**Required prop**: 
+* userid (number - id of user)
+* jwttoken (string - your jwt token)
+**Optional prop**:
+* theme (string - one of our 16 themes) 
+* breakpoints for number of columns
 - base = default
 - lg = 1200px
 - md = 800px
@@ -107,10 +129,11 @@ import { TPPLinkGridUsers} from '@mintgate/react-mintgate';
 function App() {
   return (
     <div className="App">
-      <TPPLinksGridUsers 
+      <TPPLinkGridUsers 
       userid='youruserid'
       base="4" lg="3" md="2" sm="1" xs="1"
-      tokentid='yourtokenaddress' theme='oneofourthemes'/>
+      jwttoken='yourjwttoken'
+      theme='oneofourthemes'/>
     </div>
   );
 }
@@ -118,7 +141,9 @@ function App() {
 export default App;
 ```
 
-For Token Profile:
+##Token Profile:
+**Required prop**: tokenName (string - name of token)
+**Optional prop**: body (true/false boolean - true show the profile info, false hides the profile info and only shows photo)
 ```js
 import '@mintgate/react-mintgate/dist/lib.css'
 import { TokenProfile} from '@mintgate/react-mintgate';
@@ -127,7 +152,7 @@ function App() {
   return (
     <div className="App">
       <TokenProfile
-      tid="yourtokentid" />
+      tokenName="yourtokentid" body={true/false} />
     </div>
   );
 }

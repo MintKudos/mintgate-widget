@@ -11,11 +11,11 @@ function TokenProfile(props) {
   let _url = new URL(`${TPP}/api/v2/tokens/owner/`);
 
   useEffect(() => {
-    async function fetchlinks() {
+    async function fetchinfo() {
     const data = await fetch(_url + props.tokenName.toUpperCase()).then(resp => resp.json());
     setTokenInfo(data);
     }
-    fetchlinks();
+    fetchinfo();
   }, []);
 
     console.log('APIv2:', props.tokenName.toUpperCase());
@@ -27,7 +27,7 @@ function TokenProfile(props) {
         className="flex h-auto flex-wrap w-auto"
       >
         {tokenInfo && tokenInfo.map(info =>
-        <TokenCard key={info.name} info={info} theme={props.theme} />
+        <TokenCard key={info.name} info={info} theme={props.theme} body={props.body} />
       )}
       </Masonry>
   );

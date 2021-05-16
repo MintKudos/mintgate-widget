@@ -25,7 +25,7 @@ function TPPCardEmbed({link, theme}) {
       - synthwave
       - valentine  */}
       <a href={TPP + '/go/' + link.id} target="_blank">
-        <div className="mx-2 my-4 card border border-base-300 bg-base-100 shadow hover:shadow-none transform hover:scale-95 transition duration-300">
+        <div className="mx-2 my-4 card border border-base-300 bg-base-100 shadow-sm hover:shadow-xl transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:transform-none">
           <figure>
             <img src={link.img} alt="Link Title" className={`${link.img ? 'object-cover w-full max-h-56' : 'hidden'}`} />
           </figure> 

@@ -2,7 +2,7 @@ import React from "react";
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
-function TokenCard({info, theme}) {  
+function TokenCard({info, theme, body}) {  
 
   const convertTime = (timestamp) => {
 		const dateObj = new Date(timestamp);
@@ -35,12 +35,11 @@ function TokenCard({info, theme}) {
           <img src={info.img} 
           onError={e => e.target.src = info.photo}
           alt="Token Image" className="object-cover md:object-contain mx-auto max-h-32 md:max-h-64" />
-        </figure> 
-        <div className="card-body">
-          <h2 className="card-title text-base-content text-md text-left font-heading font-semibold">{info.tid}</h2> 
-          <p className="font-body text-base-content text-md text-left mb-2">Description: {info.name}</p> 
+        </figure>
+        <div className={`card-body ${body ? "" : "hidden"}`}>
+          <h2 className="card-title text-base-content text-md text-left font-heading font-semibold">{info.name}</h2> 
           <p className="font-body text-base-content text-sm text-left"> Created by @{info.twittername}</p> 
-          <p className="font-body text-base-content text-sm text-left">Created: {convertTime(info.created)}</p> 
+          <p className="font-body text-base-content text-sm text-left">{convertTime(info.created)}</p> 
         </div>
       </div> 
 </div>
