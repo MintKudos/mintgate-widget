@@ -35,7 +35,7 @@ function TokenCard({info, theme, body}) {
           <img src={info.img} 
           onError={e => e.target.src = info.photo}
           alt="Token Image" className="object-cover md:object-contain mx-auto max-h-32 md:max-h-64" />
-        </figure> 
+        </figure>
         <div className={`card-body ${body ? "" : "hidden"}`}>
           <h2 className="card-title text-base-content text-md text-left font-heading font-semibold">{info.name}</h2> 
           <p className="font-body text-base-content text-sm text-left"> Created by @{info.twittername}</p> 

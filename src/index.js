@@ -11,7 +11,7 @@ import TokenProfile from './components/token-profile/TokenProfile'
 
 const App = () => (
     <div>
-        <TokenProfile tokenName="$JEN" theme="aqua" body={false}></TokenProfile>
+        <TokenProfile tokenName="$JEN" theme="aqua" body={true}></TokenProfile>
         <TPPLinksListUser jwttoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxNzciLCJzY29wZXMiOlsid2lkZ2V0Il0sIndpZGdldCI6dHJ1ZSwiaWF0IjoxNjIwNTA0NzYwfQ.DNh6Y8Gbp_ymaRCfMN7Ze9O10Ycq942V4N8KmDPY0sQ" userid="177" theme="aqua" base="3"></TPPLinksListUser>
         <TPPLinksGridUser jwttoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxNzciLCJzY29wZXMiOlsid2lkZ2V0Il0sIndpZGdldCI6dHJ1ZSwiaWF0IjoxNjIwNTA0NzYwfQ.DNh6Y8Gbp_ymaRCfMN7Ze9O10Ycq942V4N8KmDPY0sQ" userid="177" theme="aqua" base="3"></TPPLinksGridUser>
     </div>
