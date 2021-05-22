@@ -2063,6 +2063,11 @@
     prop-types "^15.7.2"
     react-is "^16.8.0 || ^17.0.0"
 
+"@mintgate/evm-chains@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@mintgate/evm-chains/-/evm-chains-0.3.0.tgz#b3ec65505bac114a9d5fc2932655f44cc8ac5c87"
+  integrity sha512-JeO3wUHbDo4zcVnVuwBpS2fu6NcPjgbizt1MJ/4O2iPFri2TaW/XVP/nrZo2NCzoS4oQOo5OkmxaLersFFdmFA==
+
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.4.tgz#d4b3549a5db5de2683e0c1071ab4f140904bbf69"
@@ -5684,11 +5689,6 @@ eventsource@^1.0.7:
   integrity sha512-4Ln17+vVT0k8aWq+t/bF5arcS3EpT9gYtW66EPacdj/mAFevznsnyoHLPy2BA8gbIQeIHoPsvwmfBftfcG//BQ==
   dependencies:
     original "^1.0.0"
-
-evm-chains@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/evm-chains/-/evm-chains-0.2.0.tgz#401354aa2b474bb9b34e796d328f281e67d07349"
-  integrity sha512-iMpFpmKT9VydfIUpRFoQHNzLdZ3WSNagiq6PABqWDSRwAA9OW+dpKYczkvJ/WSUesGWgcfzYoKRvfusn/9bBYA==
 
 evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
   version "1.0.3"

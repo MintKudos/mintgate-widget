@@ -126,7 +126,7 @@ function TPPFormWidget(props, preselect, onClose) {
   }
 
 
-  const [nextStepOpen, setNextStepOpen] = useState(false);
+  const [nextStepOpen, setNextStepOpen] = useState(true);
 
   if (isCreated) {
     return <TPPFormLinkDisplay link={isCreated} theme={props.theme}></TPPFormLinkDisplay>
@@ -170,8 +170,6 @@ function TPPFormWidget(props, preselect, onClose) {
             name="contentURL"
             type="text" 
             placeholder="Paste the link you want to token gate" className="w-full pr-16 input focus:ring-primary focus:ring-4 label-text text-sm font-heading font-semibold ring-4 ring-primary ring-opacity-20" /> 
-            <span onClick={() => {
-              setNextStepOpen(true);}} className={`absolute right-0 rounded-l-none btn btn-primary hover:btn-secondary ${nextStepOpen ? 'hidden' : ''}`}>next</span>
           </div>
         </div> 
         <Transition
