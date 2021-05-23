@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Masonry from 'react-masonry-css';
-import TPPCardEmbed from "../link-cards/TPPCardEmbed.js"
+import TPPCardEmbedId from "../link-cards/TPPCardEmbedId.js"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
@@ -36,7 +36,7 @@ function TPPLinksGridId(props) {
         breakpointCols={breakpointColumnsObj}
       >
         {linkData && 
-        <TPPCardEmbed key={linkData.id} link={linkData} theme={props.theme} />
+        <TPPCardEmbedId key={linkData.id} link={linkData} theme={props.theme} />
       }
       </Masonry>
   );

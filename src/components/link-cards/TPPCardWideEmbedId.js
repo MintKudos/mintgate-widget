@@ -2,8 +2,7 @@ import React from "react";
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
-function TPPCardWideEmbed({link, theme}) {  
-
+function TPPCardWideEmbed({link, theme, desc}) {  
   return(
     <div data-theme={theme}>  {/* 
       17 Themes are available: 
@@ -30,7 +29,13 @@ function TPPCardWideEmbed({link, theme}) {
             <div id="header" className="flex flex-wrap sm:flex-nowrap">
               <div id="body" className="flex flex-col mt-6 md:mt-0 ml-5">
                 <h2 className="card-title text-base-content text-md text-left font-heading font-semibold">{link.title ? link.title : "Gated Link"}</h2> 
-                <p className="font-body text-base-content text-sm text-left">{link.desc ? link.desc : "A token gated link that only holders of this NFT can access"}</p> 
+                <p className="font-body text-base-content text-sm text-left">{link.desc ? link.desc : desc }</p> 
+                <p className="font-body text-base-content text-sm text-left">Need at least {link && link.tokens.map((links) => {
+                          return links.minbal + ' ';
+                        })} 
+                        {link && link.tokens.map((links) => {
+                          return links.address + ' ';
+                        })}to access</p> 
               </div>
             </div>
           </div>

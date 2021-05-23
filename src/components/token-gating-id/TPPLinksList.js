@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import TPPCardWideEmbed from "../link-cards/TPPCardWideEmbed"
+import TPPCardWideEmbedId from "../link-cards/TPPCardWideEmbedId"
 
 const TPP = process.env.NEXT_PUBLIC_TPP_SERVER || `https://mgate.io`;
 
@@ -42,8 +42,8 @@ function TPPLinksListId(props) {
       - synthwave
       - valentine  */}
       <div className="space-y-4">
-        {linkData &&
-      <TPPCardWideEmbed key={linkData.id} link={linkData} theme={props.theme} />}
+        {linkData && 
+      <TPPCardWideEmbedId key={linkData.id} link={linkData} theme={props.theme} />}
       </div>
       </div>
   );

@@ -13,8 +13,8 @@ import TPPLinksListId from './components/token-gating-id/TPPLinksList'
 
 const App = () => (
     <div>
-        <TPPLinksGridId id="MR2WIdgtP04A" theme="aqua"></TPPLinksGridId>
-        <TPPLinksListId id="MR2WIdgtP04A" theme="aqua"></TPPLinksListId>
+        <TPPLinksGridId id="B2clN2Y-J0Q0" theme="aqua"></TPPLinksGridId>
+        <TPPLinksListId id="B2clN2Y-J0Q0" theme="aqua"></TPPLinksListId>
     </div>
 );
 
