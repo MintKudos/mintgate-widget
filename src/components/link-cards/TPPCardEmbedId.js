@@ -36,11 +36,8 @@ function TPPCardEmbed({link, theme, desc}) {
             <h2 className="card-title text-base-content text-md text-left font-heading font-semibold">{link.title ? link.title : "Gated Link"}</h2> 
             <p className="font-body text-base-content text-sm text-left">{link.desc ? link.desc : desc}</p> 
             <p className="font-body text-base-content text-sm text-left">Need at least {link && link.tokens.map((links) => {
-                          return links.minbal + ' ';
-                        })} 
-                        {link && link.tokens.map((links) => {
-                          return links.address + ' ';
-                        })}to access</p> 
+                          return <li>{links.minbal} {links.address}
+                </li>})} to access</p> 
           </div>
         </div> 
       </a>
