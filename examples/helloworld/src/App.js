@@ -5,6 +5,8 @@ import { TPPLinksList} from '@mintgate/react-mintgate';
 import { TPPLinksGrid} from '@mintgate/react-mintgate';
 import { TPPLinksListUsers} from '@mintgate/react-mintgate';
 import { TPPLinksGridUsers} from '@mintgate/react-mintgate';
+import { TPPLinksGridId} from '@mintgate/react-mintgate';
+import { TPPLinksListId} from '@mintgate/react-mintgate';
 import { TokenProfile} from '@mintgate/react-mintgate';
 import tokens from './token.json';
 function App() {
@@ -28,6 +30,10 @@ function App() {
       <h1> Grid of token Gated Links by a User - Example with MintGate </h1>
       <TPPLinksGridUsers jwttoken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxNzciLCJzY29wZXMiOlsid2lkZ2V0Il0sIndpZGdldCI6dHJ1ZSwiaWF0IjoxNjIwNTA0NzYwfQ.DNh6Y8Gbp_ymaRCfMN7Ze9O10Ycq942V4N8KmDPY0sQ" 
       base="4" lg="3" md="2" sm="1" xs="1" userid="177" theme="light" />
+      <h1> Grid of token Gated Links by a Specific ID - Example with Golden State Warriors </h1>
+      <TPPLinksGridId id="B2clN2Y-J0Q0" theme="aqua" desc="This is for the Golden State Warriors"></TPPLinksGridId>
+      <h1> List of token Gated Links by a Specific ID - Example with MintGate </h1>
+      <TPPLinksListId id="B2clN2Y-J0Q0" theme="aqua" desc="This is for the Golden State Warriors"></TPPLinksListId>
       <TokenProfile
       tokenName="4ULFAJNEQ9SM" body={false}/>
       <TokenProfile
